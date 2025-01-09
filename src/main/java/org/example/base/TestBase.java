@@ -31,7 +31,7 @@ public abstract class TestBase {
 		try {
 			prop = new Properties();
 			FileInputStream ip = new FileInputStream(System.getProperty("user.dir") +
-					"\\src\\main\\java\\com\\email\\qa\\config\\config.properties");
+					"\\src\\main\\java\\org\\example\\config\\config.properties");
 			prop.load(ip);
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();

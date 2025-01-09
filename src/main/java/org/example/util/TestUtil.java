@@ -19,7 +19,7 @@ public class TestUtil extends TestBase{
 	public static long IMPLICIT_WAIT = 10;
 
 	public static String TESTDATA_SHEET_PATH = System.getProperty("user.dir")
-			+ "\\src\\main\\java\\com\\email\\qa\\testdata\\emailAutomation_testData.xlsx";
+			+ "\\src\\main\\java\\org\\example\\testdata\\Automation_testData.xlsx";
 
 	static XSSFWorkbook book;
 	static XSSFSheet sheet;
@@ -44,7 +44,7 @@ public class TestUtil extends TestBase{
 		Object[][] data = new Object[sheet.getLastRowNum()][sheet.getRow(0).getLastCellNum()];		
 		for (int i = 0; i < sheet.getLastRowNum(); i++) {
 			for (int k = 0; k < sheet.getRow(0).getLastCellNum(); k++) {
-				data[i][k] = sheet.getRow(i + 1).getCell(k).toString();
+				data[i][k] = sheet.getRow(i + 0).getCell(k).toString();
 			}
 		}
 		return data;
