@@ -28,36 +28,20 @@ public class TestRegisterPage extends TestBase {
         register = new pageRegister(driver);
     }
 
-    @DataProvider(name = "registerTestData")
-    public Object[][] getRegisterTestData() {
-        String sheetName = "RegisterPage";
-        return convertToMapData(objTestUtil.getTestData(sheetName));
-    }
-
-    private Object[][] convertToMapData(Object[][] data) {
-        Object[][] mapData = new Object[data.length - 1][1];
-        // Extract headers
-        String[] headers = new String[data[0].length];
-        for (int i = 0; i < data[0].length; i++) {
-            headers[i] = data[0][i].toString();
-        }
-        for (int i = 1; i < data.length; i++) {
-            Map<String, String> rowMap = new HashMap<>();
-            for (int j = 0; j < headers.length; j++) {
-                rowMap.put(headers[j], data[i][j].toString());
-            }
-            mapData[i - 1][0] = rowMap;
-        }
-        return mapData;
-    }
 
     @Test(priority = 0)
     public void verifyTitle() {
         register.verifyTitle().verifyPageUrl();
     }
 
+    @DataProvider(name = "registerTestData")
+    public Object[][] getRegisterTestData() {
+        String sheetName = "RegisterPage";
+        return objTestUtil.convertToMapData(objTestUtil.getTestData(sheetName));
+    }
+
     @Test(dataProvider = "registerTestData")
-    public void testEmailFunctionality(Map<String, String> testData) {
+    public void testRegisterPageFunctionality(Map<String, String> testData) {
 
         register = new pageRegister(driver, testData);
         register.fillAndSubmit();

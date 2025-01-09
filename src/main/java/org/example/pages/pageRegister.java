@@ -25,50 +25,9 @@ public class pageRegister extends TestBase{
     private WebDriver driver;
     private int timeout = (int) TestUtil.PAGE_LOAD_TIMEOUT;
 
-
-    @FindBy(css = "a[href='Accordion.html']")
-    @CacheLookup
-    private WebElement accordion;
-
-    @FindBy(css = "textarea.form-control.ng-pristine.ng-valid.ng-touched")
+    @FindBy(css = "textarea[ng-model='Adress']")
     @CacheLookup
     private WebElement address;
-
-    @FindBy(css = "a[href='Alerts.html']")
-    @CacheLookup
-    private WebElement alerts;
-
-    @FindBy(css = "#basicBootstrapForm div:nth-of-type(7) div.col-md-4.col-xs-4.col-sm-4 multi-select div:nth-of-type(2) ul.ui-autocomplete.ui-front.ui-menu.ui-widget.ui-widget-content.ui-corner-all li:nth-of-type(1) a.ui-corner-all")
-    @CacheLookup
-    private WebElement arabic;
-
-    @FindBy(css = "a[href='AutoComplete.html']")
-    @CacheLookup
-    private WebElement autocomplete;
-
-    @FindBy(css = "a[title='Sakinalium Demo Site']")
-    @CacheLookup
-    private WebElement automationTesting;
-
-    @FindBy(css = "#basicBootstrapForm div:nth-of-type(7) div.col-md-4.col-xs-4.col-sm-4 multi-select div:nth-of-type(2) ul.ui-autocomplete.ui-front.ui-menu.ui-widget.ui-widget-content.ui-corner-all li:nth-of-type(2) a.ui-corner-all")
-    @CacheLookup
-    private WebElement bulgarian;
-
-    @FindBy(css = "#basicBootstrapForm div:nth-of-type(7) div.col-md-4.col-xs-4.col-sm-4 multi-select div:nth-of-type(2) ul.ui-autocomplete.ui-front.ui-menu.ui-widget.ui-widget-content.ui-corner-all li:nth-of-type(3) a.ui-corner-all")
-    @CacheLookup
-    private WebElement catalan;
-
-    @FindBy(css = "a[href='Charts.html']")
-    @CacheLookup
-    private WebElement charts;
-
-    @FindBy(css = "a[href='CKEditor.html']")
-    @CacheLookup
-    private WebElement ckeditor;
-
-    @FindBy(css = "a[href='CodeMirror.html']")
-    @CacheLookup
-    private WebElement codemirror;
 
     @FindBy(id = "secondpassword")
     @CacheLookup
@@ -82,23 +41,11 @@ public class pageRegister extends TestBase{
     @CacheLookup
     private WebElement cricket;
 
-    @FindBy(css = "#basicBootstrapForm div:nth-of-type(7) div.col-md-4.col-xs-4.col-sm-4 multi-select div:nth-of-type(2) ul.ui-autocomplete.ui-front.ui-menu.ui-widget.ui-widget-content.ui-corner-all li:nth-of-type(4) a.ui-corner-all")
-    @CacheLookup
-    private WebElement croatian;
-
-    @FindBy(css = "#basicBootstrapForm div:nth-of-type(7) div.col-md-4.col-xs-4.col-sm-4 multi-select div:nth-of-type(2) ul.ui-autocomplete.ui-front.ui-menu.ui-widget.ui-widget-content.ui-corner-all li:nth-of-type(5) a.ui-corner-all")
-    @CacheLookup
-    private WebElement czech;
-
-    @FindBy(css = "#basicBootstrapForm div:nth-of-type(7) div.col-md-4.col-xs-4.col-sm-4 multi-select div:nth-of-type(2) ul.ui-autocomplete.ui-front.ui-menu.ui-widget.ui-widget-content.ui-corner-all li:nth-of-type(6) a.ui-corner-all")
-    @CacheLookup
-    private WebElement danish;
-
     @FindBy(id = "yearbox")
     @CacheLookup
     private WebElement dateOfBirth1;
 
-    @FindBy(css = "#basicBootstrapForm div:nth-of-type(11) div:nth-of-type(2) select.form-control.ng-pristine.ng-untouched.ng-invalid.ng-invalid-required")
+    @FindBy(css = "select[ng-model='monthbox']")
     @CacheLookup
     private WebElement dateOfBirth2;
 
@@ -106,37 +53,14 @@ public class pageRegister extends TestBase{
     @CacheLookup
     private WebElement dateOfBirth3;
 
-    @FindBy(css = "a[href='Datepicker.html']")
-    @CacheLookup
-    private WebElement datepicker;
-
-    @FindBy(css = "#header nav.navbar.navbar-inverse div.container div:nth-of-type(2) ul.nav.navbar-nav li:nth-of-type(6) ul.dropdown-menu li:nth-of-type(1) a.dropdown-toggle")
-    @CacheLookup
-    private WebElement dragAndDrop;
-
-    @FindBy(css = "#basicBootstrapForm div:nth-of-type(7) div.col-md-4.col-xs-4.col-sm-4 multi-select div:nth-of-type(2) ul.ui-autocomplete.ui-front.ui-menu.ui-widget.ui-widget-content.ui-corner-all li:nth-of-type(7) a.ui-corner-all")
-    @CacheLookup
-    private WebElement dutch;
-
-    @FindBy(css = "a[href='Dynamic.html']")
-    @CacheLookup
-    private WebElement dynamic;
-
-    @FindBy(css = "a[href='DynamicData.html']")
-    @CacheLookup
-    private WebElement dynamicData;
-
-    @FindBy(css = "input.form-control.ng-pristine.ng-valid-email.ng-invalid.ng-invalid-required.ng-touched")
+    @FindBy(css = "input[ng-model='EmailAdress']")
     @CacheLookup
     private WebElement emailAddress;
 
-    @FindBy(css = "#basicBootstrapForm div:nth-of-type(7) div.col-md-4.col-xs-4.col-sm-4 multi-select div:nth-of-type(2) ul.ui-autocomplete.ui-front.ui-menu.ui-widget.ui-widget-content.ui-corner-all li:nth-of-type(8) a.ui-corner-all")
+    @FindBy(id = "Skills")
     @CacheLookup
-    private WebElement english;
+    private WebElement skills;
 
-    @FindBy(css = "#basicBootstrapForm div:nth-of-type(7) div.col-md-4.col-xs-4.col-sm-4 multi-select div:nth-of-type(2) ul.ui-autocomplete.ui-front.ui-menu.ui-widget.ui-widget-content.ui-corner-all li:nth-of-type(9) a.ui-corner-all")
-    @CacheLookup
-    private WebElement estonian;
 
     @FindBy(name = "radiooptions")
     @CacheLookup
@@ -146,125 +70,21 @@ public class pageRegister extends TestBase{
 
     private final String femaleValue = "FeMale";
 
-    @FindBy(css = "a[href='FileDownload.html']")
+    @FindBy(css = "input[ng-model='FirstName']")
     @CacheLookup
-    private WebElement fileDownload;
+    private WebElement firstName;
 
-    @FindBy(css = "a[href='FileUpload.html']")
+    @FindBy(css = "input[ng-model='LastName']")
     @CacheLookup
-    private WebElement fileUpload;
-
-    @FindBy(css = "#basicBootstrapForm div:nth-of-type(7) div.col-md-4.col-xs-4.col-sm-4 multi-select div:nth-of-type(2) ul.ui-autocomplete.ui-front.ui-menu.ui-widget.ui-widget-content.ui-corner-all li:nth-of-type(10) a.ui-corner-all")
-    @CacheLookup
-    private WebElement filipino;
-
-    @FindBy(css = "#basicBootstrapForm div:nth-of-type(7) div.col-md-4.col-xs-4.col-sm-4 multi-select div:nth-of-type(2) ul.ui-autocomplete.ui-front.ui-menu.ui-widget.ui-widget-content.ui-corner-all li:nth-of-type(11) a.ui-corner-all")
-    @CacheLookup
-    private WebElement finnish;
-
-    @FindBy(css = "a[href='Frames.html']")
-    @CacheLookup
-    private WebElement frames;
-
-    @FindBy(css = "#basicBootstrapForm div:nth-of-type(7) div.col-md-4.col-xs-4.col-sm-4 multi-select div:nth-of-type(2) ul.ui-autocomplete.ui-front.ui-menu.ui-widget.ui-widget-content.ui-corner-all li:nth-of-type(12) a.ui-corner-all")
-    @CacheLookup
-    private WebElement french;
-
-    @FindBy(css = "#basicBootstrapForm div:nth-of-type(1) div:nth-of-type(1) input.form-control.ng-pristine.ng-invalid.ng-invalid-required.ng-touched[type='text']")
-    @CacheLookup
-    private WebElement fullName1;
-
-    @FindBy(css = "#basicBootstrapForm div:nth-of-type(1) div:nth-of-type(2) input.form-control.ng-pristine.ng-invalid.ng-invalid-required.ng-touched[type='text']")
-    @CacheLookup
-    private WebElement fullName2;
-
-    @FindBy(css = "#basicBootstrapForm div:nth-of-type(7) div.col-md-4.col-xs-4.col-sm-4 multi-select div:nth-of-type(2) ul.ui-autocomplete.ui-front.ui-menu.ui-widget.ui-widget-content.ui-corner-all li:nth-of-type(13) a.ui-corner-all")
-    @CacheLookup
-    private WebElement german;
-
-    @FindBy(css = "#basicBootstrapForm div:nth-of-type(7) div.col-md-4.col-xs-4.col-sm-4 multi-select div:nth-of-type(2) ul.ui-autocomplete.ui-front.ui-menu.ui-widget.ui-widget-content.ui-corner-all li:nth-of-type(14) a.ui-corner-all")
-    @CacheLookup
-    private WebElement greek;
-
-    @FindBy(css = "#basicBootstrapForm div:nth-of-type(7) div.col-md-4.col-xs-4.col-sm-4 multi-select div:nth-of-type(2) ul.ui-autocomplete.ui-front.ui-menu.ui-widget.ui-widget-content.ui-corner-all li:nth-of-type(15) a.ui-corner-all")
-    @CacheLookup
-    private WebElement hebrew;
-
-    @FindBy(css = "#basicBootstrapForm div:nth-of-type(7) div.col-md-4.col-xs-4.col-sm-4 multi-select div:nth-of-type(2) ul.ui-autocomplete.ui-front.ui-menu.ui-widget.ui-widget-content.ui-corner-all li:nth-of-type(16) a.ui-corner-all")
-    @CacheLookup
-    private WebElement hindi;
+    private WebElement lastName;
 
     @FindBy(id = "checkbox3")
     @CacheLookup
     private WebElement hockey;
 
-    @FindBy(css = "a[href='Index.html']")
-    @CacheLookup
-    private WebElement home;
-
-    @FindBy(css = "#basicBootstrapForm div:nth-of-type(7) div.col-md-4.col-xs-4.col-sm-4 multi-select div:nth-of-type(2) ul.ui-autocomplete.ui-front.ui-menu.ui-widget.ui-widget-content.ui-corner-all li:nth-of-type(17) a.ui-corner-all")
-    @CacheLookup
-    private WebElement hungarian;
-
-    @FindBy(css = "#basicBootstrapForm div:nth-of-type(7) div.col-md-4.col-xs-4.col-sm-4 multi-select div:nth-of-type(2) ul.ui-autocomplete.ui-front.ui-menu.ui-widget.ui-widget-content.ui-corner-all li:nth-of-type(18) a.ui-corner-all")
-    @CacheLookup
-    private WebElement icelandic;
-
-    @FindBy(css = "#basicBootstrapForm div:nth-of-type(7) div.col-md-4.col-xs-4.col-sm-4 multi-select div:nth-of-type(2) ul.ui-autocomplete.ui-front.ui-menu.ui-widget.ui-widget-content.ui-corner-all li:nth-of-type(19) a.ui-corner-all")
-    @CacheLookup
-    private WebElement indonesian;
-
-    @FindBy(css = "a[href='Interactions.html']")
-    @CacheLookup
-    private WebElement interactions;
-
-    @FindBy(css = "#basicBootstrapForm div:nth-of-type(7) div.col-md-4.col-xs-4.col-sm-4 multi-select div:nth-of-type(2) ul.ui-autocomplete.ui-front.ui-menu.ui-widget.ui-widget-content.ui-corner-all li:nth-of-type(20) a.ui-corner-all")
-    @CacheLookup
-    private WebElement italian;
-
-    @FindBy(css = "#basicBootstrapForm div:nth-of-type(7) div.col-md-4.col-xs-4.col-sm-4 multi-select div:nth-of-type(2) ul.ui-autocomplete.ui-front.ui-menu.ui-widget.ui-widget-content.ui-corner-all li:nth-of-type(21) a.ui-corner-all")
-    @CacheLookup
-    private WebElement japanese;
-
-    @FindBy(css = "a[href='JqueryProgressBar.html']")
-    @CacheLookup
-    private WebElement jqueryProgressbar;
-
-    @FindBy(css = "#basicBootstrapForm div:nth-of-type(7) div.col-md-4.col-xs-4.col-sm-4 multi-select div:nth-of-type(2) ul.ui-autocomplete.ui-front.ui-menu.ui-widget.ui-widget-content.ui-corner-all li:nth-of-type(22) a.ui-corner-all")
-    @CacheLookup
-    private WebElement korean;
-
-    @FindBy(css = "#basicBootstrapForm div:nth-of-type(7) div.col-md-4.col-xs-4.col-sm-4 multi-select div:nth-of-type(2) ul.ui-autocomplete.ui-front.ui-menu.ui-widget.ui-widget-content.ui-corner-all li:nth-of-type(23) a.ui-corner-all")
-    @CacheLookup
-    private WebElement latvian;
-
-    @FindBy(css = "#basicBootstrapForm div:nth-of-type(7) div.col-md-4.col-xs-4.col-sm-4 multi-select div:nth-of-type(2) ul.ui-autocomplete.ui-front.ui-menu.ui-widget.ui-widget-content.ui-corner-all li:nth-of-type(24) a.ui-corner-all")
-    @CacheLookup
-    private WebElement lithuanian;
-
-    @FindBy(css = "a[href='Loader.html']")
-    @CacheLookup
-    private WebElement loader;
-
-    @FindBy(css = "#basicBootstrapForm div:nth-of-type(7) div.col-md-4.col-xs-4.col-sm-4 multi-select div:nth-of-type(2) ul.ui-autocomplete.ui-front.ui-menu.ui-widget.ui-widget-content.ui-corner-all li:nth-of-type(25) a.ui-corner-all")
-    @CacheLookup
-    private WebElement malay;
-
-    @FindBy(css = "a[href='Modals.html']")
-    @CacheLookup
-    private WebElement modals;
-
-    @FindBy(css = "#header nav.navbar.navbar-inverse div.container div:nth-of-type(2) ul.nav.navbar-nav li:nth-of-type(9) a.dropdown-toggle")
-    @CacheLookup
-    private WebElement more;
-
     @FindBy(id = "checkbox2")
     @CacheLookup
     private WebElement movies;
-
-    @FindBy(css = "#basicBootstrapForm div:nth-of-type(7) div.col-md-4.col-xs-4.col-sm-4 multi-select div:nth-of-type(2) ul.ui-autocomplete.ui-front.ui-menu.ui-widget.ui-widget-content.ui-corner-all li:nth-of-type(26) a.ui-corner-all")
-    @CacheLookup
-    private WebElement norwegian;
 
     private final String pageLoadedText = "";
 
@@ -275,11 +95,7 @@ public class pageRegister extends TestBase{
     @CacheLookup
     private WebElement password;
 
-    @FindBy(css = "#basicBootstrapForm div:nth-of-type(7) div.col-md-4.col-xs-4.col-sm-4 multi-select div:nth-of-type(2) ul.ui-autocomplete.ui-front.ui-menu.ui-widget.ui-widget-content.ui-corner-all li:nth-of-type(27) a.ui-corner-all")
-    @CacheLookup
-    private WebElement persian;
-
-    @FindBy(css = "input.form-control.ng-pristine.ng-invalid.ng-invalid-required.ng-valid-pattern.ng-touched")
+    @FindBy(css = "input[ng-model='Phone']")
     @CacheLookup
     private WebElement phone;
 
@@ -287,145 +103,19 @@ public class pageRegister extends TestBase{
     @CacheLookup
     private WebElement photo;
 
-    @FindBy(css = "#basicBootstrapForm div:nth-of-type(7) div.col-md-4.col-xs-4.col-sm-4 multi-select div:nth-of-type(2) ul.ui-autocomplete.ui-front.ui-menu.ui-widget.ui-widget-content.ui-corner-all li:nth-of-type(28) a.ui-corner-all")
-    @CacheLookup
-    private WebElement polish;
-
-    @FindBy(css = "#basicBootstrapForm div:nth-of-type(7) div.col-md-4.col-xs-4.col-sm-4 multi-select div:nth-of-type(2) ul.ui-autocomplete.ui-front.ui-menu.ui-widget.ui-widget-content.ui-corner-all li:nth-of-type(29) a.ui-corner-all")
-    @CacheLookup
-    private WebElement portuguese;
-
-    @FindBy(css = "a[href='http://practice.automationtesting.in/']")
-    @CacheLookup
-    private WebElement practiceSite;
-
-    @FindBy(css = "a[href='ProgressBar.html']")
-    @CacheLookup
-    private WebElement progressbar;
-
     @FindBy(id = "Button1")
     @CacheLookup
     private WebElement refresh;
-
-    @FindBy(css = "a[href='Register.html']")
-    @CacheLookup
-    private WebElement register;
-
-    @FindBy(css = "a[href='Resizable.html']")
-    @CacheLookup
-    private WebElement resizable;
-
-    @FindBy(css = "#basicBootstrapForm div:nth-of-type(7) div.col-md-4.col-xs-4.col-sm-4 multi-select div:nth-of-type(2) ul.ui-autocomplete.ui-front.ui-menu.ui-widget.ui-widget-content.ui-corner-all li:nth-of-type(30) a.ui-corner-all")
-    @CacheLookup
-    private WebElement romanian;
-
-    @FindBy(css = "#basicBootstrapForm div:nth-of-type(7) div.col-md-4.col-xs-4.col-sm-4 multi-select div:nth-of-type(2) ul.ui-autocomplete.ui-front.ui-menu.ui-widget.ui-widget-content.ui-corner-all li:nth-of-type(31) a.ui-corner-all")
-    @CacheLookup
-    private WebElement russian;
 
     @FindBy(id = "country")
     @CacheLookup
     private WebElement selectCountry;
 
-    @FindBy(css = "a[href='Selectable.html']")
-    @CacheLookup
-    private WebElement selectable;
-
-    @FindBy(css = "#basicBootstrapForm div:nth-of-type(7) div.col-md-4.col-xs-4.col-sm-4 multi-select div:nth-of-type(2) ul.ui-autocomplete.ui-front.ui-menu.ui-widget.ui-widget-content.ui-corner-all li:nth-of-type(32) a.ui-corner-all")
-    @CacheLookup
-    private WebElement serbian;
-
-    @FindBy(id = "Skills")
-    @CacheLookup
-    private WebElement skills;
-
-    @FindBy(css = "a[href='Slider.html']")
-    @CacheLookup
-    private WebElement slider;
-
-    @FindBy(css = "#basicBootstrapForm div:nth-of-type(7) div.col-md-4.col-xs-4.col-sm-4 multi-select div:nth-of-type(2) ul.ui-autocomplete.ui-front.ui-menu.ui-widget.ui-widget-content.ui-corner-all li:nth-of-type(33) a.ui-corner-all")
-    @CacheLookup
-    private WebElement slovak;
-
-    @FindBy(css = "#basicBootstrapForm div:nth-of-type(7) div.col-md-4.col-xs-4.col-sm-4 multi-select div:nth-of-type(2) ul.ui-autocomplete.ui-front.ui-menu.ui-widget.ui-widget-content.ui-corner-all li:nth-of-type(34) a.ui-corner-all")
-    @CacheLookup
-    private WebElement slovenian;
-
-    @FindBy(css = "#basicBootstrapForm div:nth-of-type(7) div.col-md-4.col-xs-4.col-sm-4 multi-select div:nth-of-type(2) ul.ui-autocomplete.ui-front.ui-menu.ui-widget.ui-widget-content.ui-corner-all li:nth-of-type(35) a.ui-corner-all")
-    @CacheLookup
-    private WebElement spanish;
-
     @FindBy(id = "submitbtn")
     @CacheLookup
     private WebElement submit;
 
-    @FindBy(css = "a[href='SummerNote.html']")
-    @CacheLookup
-    private WebElement summernote;
 
-    @FindBy(css = "#basicBootstrapForm div:nth-of-type(7) div.col-md-4.col-xs-4.col-sm-4 multi-select div:nth-of-type(2) ul.ui-autocomplete.ui-front.ui-menu.ui-widget.ui-widget-content.ui-corner-all li:nth-of-type(36) a.ui-corner-all")
-    @CacheLookup
-    private WebElement swedish;
-
-    @FindBy(css = "#header nav.navbar.navbar-inverse div.container div:nth-of-type(2) ul.nav.navbar-nav li:nth-of-type(4) a.dropdown-toggle")
-    @CacheLookup
-    private WebElement switchto;
-
-    @FindBy(css = "#basicBootstrapForm div:nth-of-type(7) div.col-md-4.col-xs-4.col-sm-4 multi-select div:nth-of-type(2) ul.ui-autocomplete.ui-front.ui-menu.ui-widget.ui-widget-content.ui-corner-all li:nth-of-type(37) a.ui-corner-all")
-    @CacheLookup
-    private WebElement thai;
-
-    @FindBy(css = "a[href='TinyMCE.html']")
-    @CacheLookup
-    private WebElement tinymce;
-
-    @FindBy(css = "button.btn.btn-success.navbar-toggle")
-    @CacheLookup
-    private WebElement toggleNavigation;
-
-    @FindBy(css = "#basicBootstrapForm div:nth-of-type(7) div.col-md-4.col-xs-4.col-sm-4 multi-select div:nth-of-type(2) ul.ui-autocomplete.ui-front.ui-menu.ui-widget.ui-widget-content.ui-corner-all li:nth-of-type(38) a.ui-corner-all")
-    @CacheLookup
-    private WebElement turkish;
-
-    @FindBy(css = "#basicBootstrapForm div:nth-of-type(7) div.col-md-4.col-xs-4.col-sm-4 multi-select div:nth-of-type(2) ul.ui-autocomplete.ui-front.ui-menu.ui-widget.ui-widget-content.ui-corner-all li:nth-of-type(39) a.ui-corner-all")
-    @CacheLookup
-    private WebElement ukrainian;
-
-    @FindBy(css = "#basicBootstrapForm div:nth-of-type(7) div.col-md-4.col-xs-4.col-sm-4 multi-select div:nth-of-type(2) ul.ui-autocomplete.ui-front.ui-menu.ui-widget.ui-widget-content.ui-corner-all li:nth-of-type(40) a.ui-corner-all")
-    @CacheLookup
-    private WebElement urdu;
-
-    @FindBy(css = "#header nav.navbar.navbar-inverse div.container div:nth-of-type(2) ul.nav.navbar-nav li:nth-of-type(7) a.dropdown-toggle")
-    @CacheLookup
-    private WebElement video;
-
-    @FindBy(css = "#basicBootstrapForm div:nth-of-type(7) div.col-md-4.col-xs-4.col-sm-4 multi-select div:nth-of-type(2) ul.ui-autocomplete.ui-front.ui-menu.ui-widget.ui-widget-content.ui-corner-all li:nth-of-type(41) a.ui-corner-all")
-    @CacheLookup
-    private WebElement vietnamese;
-
-    @FindBy(css = "a[href='Vimeo.html']")
-    @CacheLookup
-    private WebElement vimeo;
-
-    @FindBy(css = "a[href='WebTable.html']")
-    @CacheLookup
-    private WebElement webtable;
-
-    @FindBy(css = "a[href='Widgets.html']")
-    @CacheLookup
-    private WebElement widgets;
-
-    @FindBy(css = "a[href='Windows.html']")
-    @CacheLookup
-    private WebElement windows;
-
-    @FindBy(css = "a[href='WYSIWYG.html']")
-    @CacheLookup
-    private WebElement wysiwyg;
-
-    @FindBy(css = "a[href='Youtube.html']")
-    @CacheLookup
-    private WebElement youtube;
 
     public pageRegister() {
     }
@@ -447,517 +137,6 @@ public class pageRegister extends TestBase{
         this.timeout = timeout;
     }
 
-
-    /**
-     * Click on Accordion Link.
-     *
-     * @return the Register class instance.
-     */
-    public pageRegister clickAccordionLink() {
-        accordion.click();
-        return this;
-    }
-
-    /**
-     * Click on Alerts Link.
-     *
-     * @return the Register class instance.
-     */
-    public pageRegister clickAlertsLink() {
-        alerts.click();
-        return this;
-    }
-
-    /**
-     * Click on Arabic Link.
-     *
-     * @return the Register class instance.
-     */
-    public pageRegister clickArabicLink() {
-        arabic.click();
-        return this;
-    }
-
-    /**
-     * Click on Autocomplete Link.
-     *
-     * @return the Register class instance.
-     */
-    public pageRegister clickAutocompleteLink() {
-        autocomplete.click();
-        return this;
-    }
-
-    /**
-     * Click on Automation Testing Link.
-     *
-     * @return the Register class instance.
-     */
-    public pageRegister clickAutomationTestingLink() {
-        automationTesting.click();
-        return this;
-    }
-
-    /**
-     * Click on Bulgarian Link.
-     *
-     * @return the Register class instance.
-     */
-    public pageRegister clickBulgarianLink() {
-        bulgarian.click();
-        return this;
-    }
-
-    /**
-     * Click on Catalan Link.
-     *
-     * @return the Register class instance.
-     */
-    public pageRegister clickCatalanLink() {
-        catalan.click();
-        return this;
-    }
-
-    /**
-     * Click on Charts Link.
-     *
-     * @return the Register class instance.
-     */
-    public pageRegister clickChartsLink() {
-        charts.click();
-        return this;
-    }
-
-    /**
-     * Click on Ckeditor Link.
-     *
-     * @return the Register class instance.
-     */
-    public pageRegister clickCkeditorLink() {
-        ckeditor.click();
-        return this;
-    }
-
-    /**
-     * Click on Codemirror Link.
-     *
-     * @return the Register class instance.
-     */
-    public pageRegister clickCodemirrorLink() {
-        codemirror.click();
-        return this;
-    }
-
-    /**
-     * Click on Croatian Link.
-     *
-     * @return the Register class instance.
-     */
-    public pageRegister clickCroatianLink() {
-        croatian.click();
-        return this;
-    }
-
-    /**
-     * Click on Czech Link.
-     *
-     * @return the Register class instance.
-     */
-    public pageRegister clickCzechLink() {
-        czech.click();
-        return this;
-    }
-
-    /**
-     * Click on Danish Link.
-     *
-     * @return the Register class instance.
-     */
-    public pageRegister clickDanishLink() {
-        danish.click();
-        return this;
-    }
-
-    /**
-     * Click on Datepicker Link.
-     *
-     * @return the Register class instance.
-     */
-    public pageRegister clickDatepickerLink() {
-        datepicker.click();
-        return this;
-    }
-
-    /**
-     * Click on Drag And Drop Link.
-     *
-     * @return the Register class instance.
-     */
-    public pageRegister clickDragAndDropLink() {
-        dragAndDrop.click();
-        return this;
-    }
-
-    /**
-     * Click on Dutch Link.
-     *
-     * @return the Register class instance.
-     */
-    public pageRegister clickDutchLink() {
-        dutch.click();
-        return this;
-    }
-
-    /**
-     * Click on Dynamic Data Link.
-     *
-     * @return the Register class instance.
-     */
-    public pageRegister clickDynamicDataLink() {
-        dynamicData.click();
-        return this;
-    }
-
-    /**
-     * Click on Dynamic Link.
-     *
-     * @return the Register class instance.
-     */
-    public pageRegister clickDynamicLink() {
-        dynamic.click();
-        return this;
-    }
-
-    /**
-     * Click on English Link.
-     *
-     * @return the Register class instance.
-     */
-    public pageRegister clickEnglishLink() {
-        english.click();
-        return this;
-    }
-
-    /**
-     * Click on Estonian Link.
-     *
-     * @return the Register class instance.
-     */
-    public pageRegister clickEstonianLink() {
-        estonian.click();
-        return this;
-    }
-
-    /**
-     * Click on File Download Link.
-     *
-     * @return the Register class instance.
-     */
-    public pageRegister clickFileDownloadLink() {
-        fileDownload.click();
-        return this;
-    }
-
-    /**
-     * Click on File Upload Link.
-     *
-     * @return the Register class instance.
-     */
-    public pageRegister clickFileUploadLink() {
-        fileUpload.click();
-        return this;
-    }
-
-    /**
-     * Click on Filipino Link.
-     *
-     * @return the Register class instance.
-     */
-    public pageRegister clickFilipinoLink() {
-        filipino.click();
-        return this;
-    }
-
-    /**
-     * Click on Finnish Link.
-     *
-     * @return the Register class instance.
-     */
-    public pageRegister clickFinnishLink() {
-        finnish.click();
-        return this;
-    }
-
-    /**
-     * Click on Frames Link.
-     *
-     * @return the Register class instance.
-     */
-    public pageRegister clickFramesLink() {
-        frames.click();
-        return this;
-    }
-
-    /**
-     * Click on French Link.
-     *
-     * @return the Register class instance.
-     */
-    public pageRegister clickFrenchLink() {
-        french.click();
-        return this;
-    }
-
-    /**
-     * Click on German Link.
-     *
-     * @return the Register class instance.
-     */
-    public pageRegister clickGermanLink() {
-        german.click();
-        return this;
-    }
-
-    /**
-     * Click on Greek Link.
-     *
-     * @return the Register class instance.
-     */
-    public pageRegister clickGreekLink() {
-        greek.click();
-        return this;
-    }
-
-    /**
-     * Click on Hebrew Link.
-     *
-     * @return the Register class instance.
-     */
-    public pageRegister clickHebrewLink() {
-        hebrew.click();
-        return this;
-    }
-
-    /**
-     * Click on Hindi Link.
-     *
-     * @return the Register class instance.
-     */
-    public pageRegister clickHindiLink() {
-        hindi.click();
-        return this;
-    }
-
-    /**
-     * Click on Home Link.
-     *
-     * @return the Register class instance.
-     */
-    public pageRegister clickHomeLink() {
-        home.click();
-        return this;
-    }
-
-    /**
-     * Click on Hungarian Link.
-     *
-     * @return the Register class instance.
-     */
-    public pageRegister clickHungarianLink() {
-        hungarian.click();
-        return this;
-    }
-
-    /**
-     * Click on Icelandic Link.
-     *
-     * @return the Register class instance.
-     */
-    public pageRegister clickIcelandicLink() {
-        icelandic.click();
-        return this;
-    }
-
-    /**
-     * Click on Indonesian Link.
-     *
-     * @return the Register class instance.
-     */
-    public pageRegister clickIndonesianLink() {
-        indonesian.click();
-        return this;
-    }
-
-    /**
-     * Click on Interactions Link.
-     *
-     * @return the Register class instance.
-     */
-    public pageRegister clickInteractionsLink() {
-        interactions.click();
-        return this;
-    }
-
-    /**
-     * Click on Italian Link.
-     *
-     * @return the Register class instance.
-     */
-    public pageRegister clickItalianLink() {
-        italian.click();
-        return this;
-    }
-
-    /**
-     * Click on Japanese Link.
-     *
-     * @return the Register class instance.
-     */
-    public pageRegister clickJapaneseLink() {
-        japanese.click();
-        return this;
-    }
-
-    /**
-     * Click on Jquery Progressbar Link.
-     *
-     * @return the Register class instance.
-     */
-    public pageRegister clickJqueryProgressbarLink() {
-        jqueryProgressbar.click();
-        return this;
-    }
-
-    /**
-     * Click on Korean Link.
-     *
-     * @return the Register class instance.
-     */
-    public pageRegister clickKoreanLink() {
-        korean.click();
-        return this;
-    }
-
-    /**
-     * Click on Latvian Link.
-     *
-     * @return the Register class instance.
-     */
-    public pageRegister clickLatvianLink() {
-        latvian.click();
-        return this;
-    }
-
-    /**
-     * Click on Lithuanian Link.
-     *
-     * @return the Register class instance.
-     */
-    public pageRegister clickLithuanianLink() {
-        lithuanian.click();
-        return this;
-    }
-
-    /**
-     * Click on Loader Link.
-     *
-     * @return the Register class instance.
-     */
-    public pageRegister clickLoaderLink() {
-        loader.click();
-        return this;
-    }
-
-    /**
-     * Click on Malay Link.
-     *
-     * @return the Register class instance.
-     */
-    public pageRegister clickMalayLink() {
-        malay.click();
-        return this;
-    }
-
-    /**
-     * Click on Modals Link.
-     *
-     * @return the Register class instance.
-     */
-    public pageRegister clickModalsLink() {
-        modals.click();
-        return this;
-    }
-
-    /**
-     * Click on More Link.
-     *
-     * @return the Register class instance.
-     */
-    public pageRegister clickMoreLink() {
-        more.click();
-        return this;
-    }
-
-    /**
-     * Click on Norwegian Link.
-     *
-     * @return the Register class instance.
-     */
-    public pageRegister clickNorwegianLink() {
-        norwegian.click();
-        return this;
-    }
-
-    /**
-     * Click on Persian Link.
-     *
-     * @return the Register class instance.
-     */
-    public pageRegister clickPersianLink() {
-        persian.click();
-        return this;
-    }
-
-    /**
-     * Click on Polish Link.
-     *
-     * @return the Register class instance.
-     */
-    public pageRegister clickPolishLink() {
-        polish.click();
-        return this;
-    }
-
-    /**
-     * Click on Portuguese Link.
-     *
-     * @return the Register class instance.
-     */
-    public pageRegister clickPortugueseLink() {
-        portuguese.click();
-        return this;
-    }
-
-    /**
-     * Click on Practice Site Link.
-     *
-     * @return the Register class instance.
-     */
-    public pageRegister clickPracticeSiteLink() {
-        practiceSite.click();
-        return this;
-    }
-
-    /**
-     * Click on Progressbar Link.
-     *
-     * @return the Register class instance.
-     */
-    public pageRegister clickProgressbarLink() {
-        progressbar.click();
-        return this;
-    }
-
     /**
      * Click on Refresh Button.
      *
@@ -969,282 +148,12 @@ public class pageRegister extends TestBase{
     }
 
     /**
-     * Click on Register Link.
-     *
-     * @return the Register class instance.
-     */
-    public pageRegister clickRegisterLink() {
-        register.click();
-        return this;
-    }
-
-    /**
-     * Click on Resizable Link.
-     *
-     * @return the Register class instance.
-     */
-    public pageRegister clickResizableLink() {
-        resizable.click();
-        return this;
-    }
-
-    /**
-     * Click on Romanian Link.
-     *
-     * @return the Register class instance.
-     */
-    public pageRegister clickRomanianLink() {
-        romanian.click();
-        return this;
-    }
-
-    /**
-     * Click on Russian Link.
-     *
-     * @return the Register class instance.
-     */
-    public pageRegister clickRussianLink() {
-        russian.click();
-        return this;
-    }
-
-    /**
-     * Click on Selectable Link.
-     *
-     * @return the Register class instance.
-     */
-    public pageRegister clickSelectableLink() {
-        selectable.click();
-        return this;
-    }
-
-    /**
-     * Click on Serbian Link.
-     *
-     * @return the Register class instance.
-     */
-    public pageRegister clickSerbianLink() {
-        serbian.click();
-        return this;
-    }
-
-    /**
-     * Click on Slider Link.
-     *
-     * @return the Register class instance.
-     */
-    public pageRegister clickSliderLink() {
-        slider.click();
-        return this;
-    }
-
-    /**
-     * Click on Slovak Link.
-     *
-     * @return the Register class instance.
-     */
-    public pageRegister clickSlovakLink() {
-        slovak.click();
-        return this;
-    }
-
-    /**
-     * Click on Slovenian Link.
-     *
-     * @return the Register class instance.
-     */
-    public pageRegister clickSlovenianLink() {
-        slovenian.click();
-        return this;
-    }
-
-    /**
-     * Click on Spanish Link.
-     *
-     * @return the Register class instance.
-     */
-    public pageRegister clickSpanishLink() {
-        spanish.click();
-        return this;
-    }
-
-    /**
      * Click on Submit Button.
      *
      * @return the Register class instance.
      */
     public pageRegister clickSubmitButton() {
         submit.click();
-        return this;
-    }
-
-    /**
-     * Click on Summernote Link.
-     *
-     * @return the Register class instance.
-     */
-    public pageRegister clickSummernoteLink() {
-        summernote.click();
-        return this;
-    }
-
-    /**
-     * Click on Swedish Link.
-     *
-     * @return the Register class instance.
-     */
-    public pageRegister clickSwedishLink() {
-        swedish.click();
-        return this;
-    }
-
-    /**
-     * Click on Switchto Link.
-     *
-     * @return the Register class instance.
-     */
-    public pageRegister clickSwitchtoLink() {
-        switchto.click();
-        return this;
-    }
-
-    /**
-     * Click on Thai Link.
-     *
-     * @return the Register class instance.
-     */
-    public pageRegister clickThaiLink() {
-        thai.click();
-        return this;
-    }
-
-    /**
-     * Click on Tinymce Link.
-     *
-     * @return the Register class instance.
-     */
-    public pageRegister clickTinymceLink() {
-        tinymce.click();
-        return this;
-    }
-
-    /**
-     * Click on Toggle Navigation Button.
-     *
-     * @return the Register class instance.
-     */
-    public pageRegister clickToggleNavigationButton() {
-        toggleNavigation.click();
-        return this;
-    }
-
-    /**
-     * Click on Turkish Link.
-     *
-     * @return the Register class instance.
-     */
-    public pageRegister clickTurkishLink() {
-        turkish.click();
-        return this;
-    }
-
-    /**
-     * Click on Ukrainian Link.
-     *
-     * @return the Register class instance.
-     */
-    public pageRegister clickUkrainianLink() {
-        ukrainian.click();
-        return this;
-    }
-
-    /**
-     * Click on Urdu Link.
-     *
-     * @return the Register class instance.
-     */
-    public pageRegister clickUrduLink() {
-        urdu.click();
-        return this;
-    }
-
-    /**
-     * Click on Video Link.
-     *
-     * @return the Register class instance.
-     */
-    public pageRegister clickVideoLink() {
-        video.click();
-        return this;
-    }
-
-    /**
-     * Click on Vietnamese Link.
-     *
-     * @return the Register class instance.
-     */
-    public pageRegister clickVietnameseLink() {
-        vietnamese.click();
-        return this;
-    }
-
-    /**
-     * Click on Vimeo Link.
-     *
-     * @return the Register class instance.
-     */
-    public pageRegister clickVimeoLink() {
-        vimeo.click();
-        return this;
-    }
-
-    /**
-     * Click on Webtable Link.
-     *
-     * @return the Register class instance.
-     */
-    public pageRegister clickWebtableLink() {
-        webtable.click();
-        return this;
-    }
-
-    /**
-     * Click on Widgets Link.
-     *
-     * @return the Register class instance.
-     */
-    public pageRegister clickWidgetsLink() {
-        widgets.click();
-        return this;
-    }
-
-    /**
-     * Click on Windows Link.
-     *
-     * @return the Register class instance.
-     */
-    public pageRegister clickWindowsLink() {
-        windows.click();
-        return this;
-    }
-
-    /**
-     * Click on Wysiwyg Link.
-     *
-     * @return the Register class instance.
-     */
-    public pageRegister clickWysiwygLink() {
-        wysiwyg.click();
-        return this;
-    }
-
-    /**
-     * Click on Youtube Link.
-     *
-     * @return the Register class instance.
-     */
-    public pageRegister clickYoutubeLink() {
-        youtube.click();
         return this;
     }
 
@@ -1262,9 +171,8 @@ public class pageRegister extends TestBase{
         setGenderRadioButton();
         setHobbiesCheckBox();
         setSkillsDropDownListField();
-        setCountryDropDownListField();
+        //setCountryDropDownListField();
         setSelectCountryDropDownListField();
-
         setDateOfBirth1DropDownListField();
         setDateOfBirth2DropDownListField();
         setDateOfBirth3DropDownListField();
@@ -1516,8 +424,8 @@ public class pageRegister extends TestBase{
      *
      * @return the Register class instance.
      */
-    public pageRegister setFullName1TextField(String fullName1Value) {
-        fullName1.sendKeys(fullName1Value);
+    public pageRegister setFullName1TextField(String firstNameValue) {
+        firstName.sendKeys(firstNameValue);
         return this;
     }
 
@@ -1535,8 +443,8 @@ public class pageRegister extends TestBase{
      *
      * @return the Register class instance.
      */
-    public pageRegister setFullName2TextField(String fullName2Value) {
-        fullName2.sendKeys(fullName2Value);
+    public pageRegister setFullName2TextField(String lastNameValue) {
+        lastName.sendKeys(lastNameValue);
         return this;
     }
 
@@ -1646,16 +554,6 @@ public class pageRegister extends TestBase{
      */
     public pageRegister setSkillsDropDownListField(String skillsValue) {
         new Select(skills).selectByVisibleText(skillsValue);
-        return this;
-    }
-
-    /**
-     * Submit the form to target page.
-     *
-     * @return the Register class instance.
-     */
-    public pageRegister submit() {
-        clickToggleNavigationButton();
         return this;
     }
 
