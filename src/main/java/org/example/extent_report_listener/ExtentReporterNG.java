@@ -25,7 +25,7 @@ public class ExtentReporterNG implements IReporter {
     @Override
     public void generateReport(List<XmlSuite> xmlSuites, List<ISuite> suites, String outputDirectory) {
         ExtentHtmlReporter htmlReporter = new ExtentHtmlReporter(
-				outputDirectory + File.separator + "email_Test_automation_Extent.html");
+				outputDirectory + File.separator + "test-report.html");
         extent = new ExtentReports();
         extent.attachReporter(htmlReporter);
 

@@ -2,6 +2,14 @@
 <project version="4">
   <component name="SonarLintProjectSettings">
     <option name="bindingEnabled" value="true" />
+    <option name="fileExclusions">
+      <list>
+        <option value="DIRECTORY:test-output" />
+        <option value="DIRECTORY:target" />
+        <option value="DIRECTORY:screenshots" />
+        <option value="DIRECTORY:.idea" />
+      </list>
+    </option>
     <option name="projectKey" value="NealsArcade_sdet-case-study-1" />
     <option name="serverId" value="NealsArcade" />
   </component>
