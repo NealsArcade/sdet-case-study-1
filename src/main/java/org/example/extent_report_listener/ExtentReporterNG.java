@@ -1,4 +1,4 @@
-package org.example.ExtentReportListener;
+package org.example.extent_report_listener;
 
 import java.io.File;
 import java.util.Calendar;
@@ -22,6 +22,7 @@ import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 public class ExtentReporterNG implements IReporter {
     private ExtentReports extent;
 
+    @Override
     public void generateReport(List<XmlSuite> xmlSuites, List<ISuite> suites, String outputDirectory) {
         ExtentHtmlReporter htmlReporter = new ExtentHtmlReporter(
 				outputDirectory + File.separator + "email_Test_automation_Extent.html");

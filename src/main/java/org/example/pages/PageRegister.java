@@ -1,6 +1,7 @@
 package org.example.pages;
 
 
+import java.lang.invoke.MethodHandles;
 import java.time.Duration;
 import java.util.List;
 import java.util.Map;
@@ -19,11 +20,17 @@ import org.openqa.selenium.WebElement;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class pageRegister extends TestBase{
-    private static final Logger logger = LoggerFactory.getLogger(pageRegister.class);
+public class PageRegister extends TestBase {
+
+    private static final Logger log = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
     private Map<String, String> data;
     private WebDriver driver;
-    private int timeout = (int) TestUtil.PAGE_LOAD_TIMEOUT;
+
+    private static final String PAGE_LOADED_TEXT = "";
+    private static final String PAGE_URL = "/Register.html";
+    private static final String PAGE_TITLE = "Register";
+    private static final String MALE_VALUE = "Male";
+    private static final String FEMALE_VALUE = "FeMale";
 
     @FindBy(css = "textarea[ng-model='Adress']")
     @CacheLookup
@@ -66,9 +73,6 @@ public class pageRegister extends TestBase{
     @CacheLookup
     private List<WebElement> gender;
 
-    private final String maleValue = "Male";
-
-    private final String femaleValue = "FeMale";
 
     @FindBy(css = "input[ng-model='FirstName']")
     @CacheLookup
@@ -86,10 +90,7 @@ public class pageRegister extends TestBase{
     @CacheLookup
     private WebElement movies;
 
-    private final String pageLoadedText = "";
 
-    private final String pageUrl = "/Register.html";
-    private final String pageTitle = "Register";
 
     @FindBy(id = "firstpassword")
     @CacheLookup
@@ -115,41 +116,35 @@ public class pageRegister extends TestBase{
     @CacheLookup
     private WebElement submit;
 
-    public final String FIRST_NAME_KEY = "firstName";
-    public final String LAST_NAME_KEY = "lastName";
-    public final String ADDRESS_KEY = "address";
-    public final String EMAIL_ADDRESS_KEY = "emailAddress";
-    public final String PHONE_KEY = "phone";
-    public final String GENDER_KEY = "gender";
-    public final String HOBBIES_KEY = "hobbies";
-    public final String LANGUAGES_KEY = "languages";
-    public final String SKILLS_KEY = "skills";
-    public final String COUNTRY_KEY = "country";
-    public final String YEAR_KEY = "year";
-    public final String MONTH_KEY = "month";
-    public final String DAY_KEY = "day";
-    public final String PASSWORD_KEY = "password";
+    public static final String FIRST_NAME_KEY = "firstName";
+    public static final String LAST_NAME_KEY = "lastName";
+    public static final String ADDRESS_KEY = "address";
+    public static final String EMAIL_ADDRESS_KEY = "emailAddress";
+    public static final String PHONE_KEY = "phone";
+    public static final String GENDER_KEY = "gender";
+    public static final String HOBBIES_KEY = "hobbies";
+    public static final String LANGUAGES_KEY = "languages";
+    public static final String SKILLS_KEY = "skills";
+    public static final String COUNTRY_KEY = "country";
+    public static final String YEAR_KEY = "year";
+    public static final String MONTH_KEY = "month";
+    public static final String DAY_KEY = "day";
+    public static final String PASSWORD_KEY = "password";
 
 
-
-    public pageRegister() {
+    public PageRegister() {
     }
 
-    public pageRegister(WebDriver driver) {
+    public PageRegister(WebDriver driver) {
         this();
         this.driver = driver;
-        driver.get(prop.getProperty("url")+pageUrl);
+        driver.get(prop.getProperty("url") + PAGE_URL);
         PageFactory.initElements(driver, this);
     }
 
-    public pageRegister(WebDriver driver, Map<String, String> data) {
+    public PageRegister(WebDriver driver, Map<String, String> data) {
         this(driver);
         this.data = data;
-    }
-
-    public pageRegister(WebDriver driver, Map<String, String> data, int timeout) {
-        this(driver, data);
-        this.timeout = timeout;
     }
 
     /**
@@ -157,7 +152,7 @@ public class pageRegister extends TestBase{
      *
      * @return the Register class instance.
      */
-    public pageRegister clickRefreshButton() {
+    public PageRegister clickRefreshButton() {
         refresh.click();
         return this;
     }
@@ -167,17 +162,17 @@ public class pageRegister extends TestBase{
      *
      * @return the Register class instance.
      */
-    public pageRegister clickSubmitButton() {
+    public PageRegister clickSubmitButton() {
         submit.click();
         return this;
     }
 
     /**
-     * Fill every fields in the page.
+     * Fill every field in the page.
      *
      * @return the Register class instance.
      */
-    public pageRegister fill() {
+    public PageRegister fill() {
         setFullName1TextField();
         setFullName2TextField();
         setAddressTextareaField();
@@ -186,7 +181,6 @@ public class pageRegister extends TestBase{
         setGenderRadioButton();
         setHobbiesCheckBox();
         setSkillsDropDownListField();
-        //setCountryDropDownListField();
         setSelectCountryDropDownListField();
         setDateOfBirth1DropDownListField();
         setDateOfBirth2DropDownListField();
@@ -197,13 +191,12 @@ public class pageRegister extends TestBase{
     }
 
 
-
     /**
-     * Fill every fields in the page and submit it to target page.
+     * Fill every field in the page and submit it to target page.
      *
      * @return the Register class instance.
      */
-    public pageRegister fillAndSubmit() {
+    public PageRegister fillAndSubmit() {
         fill();
         return clickSubmitButton();
     }
@@ -213,7 +206,7 @@ public class pageRegister extends TestBase{
      *
      * @return the Register class instance.
      */
-    public pageRegister setAddressTextareaField() {
+    public PageRegister setAddressTextareaField() {
         return setAddressTextareaField(data.get(ADDRESS_KEY));
     }
 
@@ -222,7 +215,7 @@ public class pageRegister extends TestBase{
      *
      * @return the Register class instance.
      */
-    public pageRegister setAddressTextareaField(String addressValue) {
+    public PageRegister setAddressTextareaField(String addressValue) {
         address.sendKeys(addressValue);
         return this;
     }
@@ -232,16 +225,16 @@ public class pageRegister extends TestBase{
      *
      * @return the Register class instance.
      */
-    public pageRegister setConfirmPasswordPasswordField() {
+    public PageRegister setConfirmPasswordPasswordField() {
         return setConfirmPasswordPasswordField(data.get(PASSWORD_KEY));
     }
 
     /**
-     * Set value to Confirm Password Password field.
+     * Set value to Confirm Password field.
      *
      * @return the Register class instance.
      */
-    public pageRegister setConfirmPasswordPasswordField(String confirmPasswordValue) {
+    public PageRegister setConfirmPasswordPasswordField(String confirmPasswordValue) {
         confirmPassword.sendKeys(confirmPasswordValue);
         return this;
     }
@@ -251,7 +244,7 @@ public class pageRegister extends TestBase{
      *
      * @return the Register class instance.
      */
-    public pageRegister setCountryDropDownListField() {
+    public PageRegister setCountryDropDownListField() {
         return setCountryDropDownListField(data.get(COUNTRY_KEY));
     }
 
@@ -260,26 +253,26 @@ public class pageRegister extends TestBase{
      *
      * @return the Register class instance.
      */
-    public pageRegister setCountryDropDownListField(String countryValue) {
+    public PageRegister setCountryDropDownListField(String countryValue) {
         new Select(country).selectByVisibleText(countryValue);
         return this;
     }
 
 
-    public pageRegister setHobbiesCheckBox() {
-       return setHobbiesCheckBox(data.get(HOBBIES_KEY));
+    public PageRegister setHobbiesCheckBox() {
+        return setHobbiesCheckBox(data.get(HOBBIES_KEY));
     }
 
-    public pageRegister setHobbiesCheckBox(String hobbies){
+    public PageRegister setHobbiesCheckBox(String hobbies) {
         String[] hobbyArray = hobbies.split(",");
-        for (String hobby : hobbyArray){
-            if (hobby.equalsIgnoreCase("Cricket")){
-               setCricketCheckboxField();
+        for (String hobby : hobbyArray) {
+            if (hobby.equalsIgnoreCase("Cricket")) {
+                setCricketCheckboxField();
             }
-            if(hobby.equalsIgnoreCase("Movies")){
+            if (hobby.equalsIgnoreCase("Movies")) {
                 setMoviesCheckboxField();
             }
-            if(hobby.equalsIgnoreCase("Hockey")){
+            if (hobby.equalsIgnoreCase("Hockey")) {
                 setHockeyCheckboxField();
             }
         }
@@ -291,7 +284,7 @@ public class pageRegister extends TestBase{
      *
      * @return the Register class instance.
      */
-    public pageRegister setCricketCheckboxField() {
+    public PageRegister setCricketCheckboxField() {
         if (!cricket.isSelected()) {
             cricket.click();
         }
@@ -303,7 +296,7 @@ public class pageRegister extends TestBase{
      *
      * @return the Register class instance.
      */
-    public pageRegister setDateOfBirth1DropDownListField() {
+    public PageRegister setDateOfBirth1DropDownListField() {
         return setDateOfBirth1DropDownListField(data.get(YEAR_KEY));
     }
 
@@ -312,7 +305,7 @@ public class pageRegister extends TestBase{
      *
      * @return the Register class instance.
      */
-    public pageRegister setDateOfBirth1DropDownListField(String dateOfBirth1Value) {
+    public PageRegister setDateOfBirth1DropDownListField(String dateOfBirth1Value) {
         new Select(dateOfBirth1).selectByVisibleText(dateOfBirth1Value);
         return this;
     }
@@ -322,7 +315,7 @@ public class pageRegister extends TestBase{
      *
      * @return the Register class instance.
      */
-    public pageRegister setDateOfBirth2DropDownListField() {
+    public PageRegister setDateOfBirth2DropDownListField() {
         return setDateOfBirth2DropDownListField(data.get(MONTH_KEY));
     }
 
@@ -331,7 +324,7 @@ public class pageRegister extends TestBase{
      *
      * @return the Register class instance.
      */
-    public pageRegister setDateOfBirth2DropDownListField(String dateOfBirth2Value) {
+    public PageRegister setDateOfBirth2DropDownListField(String dateOfBirth2Value) {
         new Select(dateOfBirth2).selectByVisibleText(dateOfBirth2Value);
         return this;
     }
@@ -341,7 +334,7 @@ public class pageRegister extends TestBase{
      *
      * @return the Register class instance.
      */
-    public pageRegister setDateOfBirth3DropDownListField() {
+    public PageRegister setDateOfBirth3DropDownListField() {
         return setDateOfBirth3DropDownListField(data.get(DAY_KEY));
     }
 
@@ -350,7 +343,7 @@ public class pageRegister extends TestBase{
      *
      * @return the Register class instance.
      */
-    public pageRegister setDateOfBirth3DropDownListField(String dateOfBirth3Value) {
+    public PageRegister setDateOfBirth3DropDownListField(String dateOfBirth3Value) {
         new Select(dateOfBirth3).selectByVisibleText(dateOfBirth3Value);
         return this;
     }
@@ -360,7 +353,7 @@ public class pageRegister extends TestBase{
      *
      * @return the Register class instance.
      */
-    public pageRegister setEmailAddressEmailField() {
+    public PageRegister setEmailAddressEmailField() {
         return setEmailAddressEmailField(data.get(EMAIL_ADDRESS_KEY));
     }
 
@@ -369,20 +362,20 @@ public class pageRegister extends TestBase{
      *
      * @return the Register class instance.
      */
-    public pageRegister setEmailAddressEmailField(String emailAddressValue) {
+    public PageRegister setEmailAddressEmailField(String emailAddressValue) {
         emailAddress.sendKeys(emailAddressValue);
         return this;
     }
 
-    public pageRegister setGenderRadioButton() {
+    public PageRegister setGenderRadioButton() {
         return setGenderRadioButton(data.get(GENDER_KEY));
     }
 
-    public pageRegister setGenderRadioButton(String gender){
+    public PageRegister setGenderRadioButton(String gender) {
 
-        if(gender.equalsIgnoreCase(maleValue)){
+        if (gender.equalsIgnoreCase(MALE_VALUE)) {
             setGenderMaleRadioButtonField();
-        }else if(gender.equalsIgnoreCase(femaleValue)){
+        } else if (gender.equalsIgnoreCase(FEMALE_VALUE)) {
             setGenderFemaleRadioButtonField();
         }
 
@@ -390,15 +383,14 @@ public class pageRegister extends TestBase{
     }
 
 
-
     /**
      * Set default value to Female Radio Button field.
      *
      * @return the Register class instance.
      */
-    public pageRegister setGenderMaleRadioButtonField() {
+    public PageRegister setGenderMaleRadioButtonField() {
         for (WebElement el : gender) {
-            if (el.getAttribute("value").equals(maleValue)) {
+            if (el.getDomProperty("value").equals(MALE_VALUE)) {
                 if (!el.isSelected()) {
                     el.click();
                 }
@@ -413,9 +405,9 @@ public class pageRegister extends TestBase{
      *
      * @return the Register class instance.
      */
-    public pageRegister setGenderFemaleRadioButtonField() {
+    public PageRegister setGenderFemaleRadioButtonField() {
         for (WebElement el : gender) {
-            if (el.getAttribute("value").equals(femaleValue)) {
+            if (el.getDomProperty("value").equals(FEMALE_VALUE)) {
                 if (!el.isSelected()) {
                     el.click();
                 }
@@ -430,7 +422,7 @@ public class pageRegister extends TestBase{
      *
      * @return the Register class instance.
      */
-    public pageRegister setFullName1TextField() {
+    public PageRegister setFullName1TextField() {
         return setFullName1TextField(data.get(FIRST_NAME_KEY));
     }
 
@@ -439,7 +431,7 @@ public class pageRegister extends TestBase{
      *
      * @return the Register class instance.
      */
-    public pageRegister setFullName1TextField(String firstNameValue) {
+    public PageRegister setFullName1TextField(String firstNameValue) {
         firstName.sendKeys(firstNameValue);
         return this;
     }
@@ -449,7 +441,7 @@ public class pageRegister extends TestBase{
      *
      * @return the Register class instance.
      */
-    public pageRegister setFullName2TextField() {
+    public PageRegister setFullName2TextField() {
         return setFullName2TextField(data.get(LAST_NAME_KEY));
     }
 
@@ -458,7 +450,7 @@ public class pageRegister extends TestBase{
      *
      * @return the Register class instance.
      */
-    public pageRegister setFullName2TextField(String lastNameValue) {
+    public PageRegister setFullName2TextField(String lastNameValue) {
         lastName.sendKeys(lastNameValue);
         return this;
     }
@@ -468,7 +460,7 @@ public class pageRegister extends TestBase{
      *
      * @return the Register class instance.
      */
-    public pageRegister setHockeyCheckboxField() {
+    public PageRegister setHockeyCheckboxField() {
         if (!hockey.isSelected()) {
             hockey.click();
         }
@@ -480,7 +472,7 @@ public class pageRegister extends TestBase{
      *
      * @return the Register class instance.
      */
-    public pageRegister setMoviesCheckboxField() {
+    public PageRegister setMoviesCheckboxField() {
         if (!movies.isSelected()) {
             movies.click();
         }
@@ -492,16 +484,16 @@ public class pageRegister extends TestBase{
      *
      * @return the Register class instance.
      */
-    public pageRegister setPasswordPasswordField() {
+    public PageRegister setPasswordPasswordField() {
         return setPasswordPasswordField(data.get(PASSWORD_KEY));
     }
 
     /**
-     * Set value to Password Password field.
+     * Set value to Password field.
      *
      * @return the Register class instance.
      */
-    public pageRegister setPasswordPasswordField(String passwordValue) {
+    public PageRegister setPasswordPasswordField(String passwordValue) {
         password.sendKeys(passwordValue);
         return this;
     }
@@ -511,7 +503,7 @@ public class pageRegister extends TestBase{
      *
      * @return the Register class instance.
      */
-    public pageRegister setPhoneTelField() {
+    public PageRegister setPhoneTelField() {
         return setPhoneTelField(data.get(PHONE_KEY));
     }
 
@@ -520,7 +512,7 @@ public class pageRegister extends TestBase{
      *
      * @return the Register class instance.
      */
-    public pageRegister setPhoneTelField(String phoneValue) {
+    public PageRegister setPhoneTelField(String phoneValue) {
         phone.sendKeys(phoneValue);
         return this;
     }
@@ -530,7 +522,7 @@ public class pageRegister extends TestBase{
      *
      * @return the Register class instance.
      */
-    public pageRegister setPhotoFileField() {
+    public PageRegister setPhotoFileField() {
         return this;
     }
 
@@ -539,7 +531,7 @@ public class pageRegister extends TestBase{
      *
      * @return the Register class instance.
      */
-    public pageRegister setSelectCountryDropDownListField() {
+    public PageRegister setSelectCountryDropDownListField() {
         return setSelectCountryDropDownListField(data.get(COUNTRY_KEY));
     }
 
@@ -548,7 +540,7 @@ public class pageRegister extends TestBase{
      *
      * @return the Register class instance.
      */
-    public pageRegister setSelectCountryDropDownListField(String selectCountryValue) {
+    public PageRegister setSelectCountryDropDownListField(String selectCountryValue) {
         new Select(selectCountry).selectByVisibleText(selectCountryValue);
         return this;
     }
@@ -558,7 +550,7 @@ public class pageRegister extends TestBase{
      *
      * @return the Register class instance.
      */
-    public pageRegister setSkillsDropDownListField() {
+    public PageRegister setSkillsDropDownListField() {
         return setSkillsDropDownListField(data.get(SKILLS_KEY));
     }
 
@@ -567,7 +559,7 @@ public class pageRegister extends TestBase{
      *
      * @return the Register class instance.
      */
-    public pageRegister setSkillsDropDownListField(String skillsValue) {
+    public PageRegister setSkillsDropDownListField(String skillsValue) {
         new Select(skills).selectByVisibleText(skillsValue);
         return this;
     }
@@ -577,7 +569,7 @@ public class pageRegister extends TestBase{
      *
      * @return the Register class instance.
      */
-    public pageRegister unsetCountryDropDownListField() {
+    public PageRegister unsetCountryDropDownListField() {
         return unsetCountryDropDownListField(data.get(COUNTRY_KEY));
     }
 
@@ -586,7 +578,7 @@ public class pageRegister extends TestBase{
      *
      * @return the Register class instance.
      */
-    public pageRegister unsetCountryDropDownListField(String countryValue) {
+    public PageRegister unsetCountryDropDownListField(String countryValue) {
         new Select(country).deselectByVisibleText(countryValue);
         return this;
     }
@@ -596,7 +588,7 @@ public class pageRegister extends TestBase{
      *
      * @return the Register class instance.
      */
-    public pageRegister unsetCricketCheckboxField() {
+    public PageRegister unsetCricketCheckboxField() {
         if (cricket.isSelected()) {
             cricket.click();
         }
@@ -608,7 +600,7 @@ public class pageRegister extends TestBase{
      *
      * @return the Register class instance.
      */
-    public pageRegister unsetDateOfBirth1DropDownListField() {
+    public PageRegister unsetDateOfBirth1DropDownListField() {
         return unsetDateOfBirth1DropDownListField(data.get(YEAR_KEY));
     }
 
@@ -617,7 +609,7 @@ public class pageRegister extends TestBase{
      *
      * @return the Register class instance.
      */
-    public pageRegister unsetDateOfBirth1DropDownListField(String dateOfBirth1Value) {
+    public PageRegister unsetDateOfBirth1DropDownListField(String dateOfBirth1Value) {
         new Select(dateOfBirth1).deselectByVisibleText(dateOfBirth1Value);
         return this;
     }
@@ -627,7 +619,7 @@ public class pageRegister extends TestBase{
      *
      * @return the Register class instance.
      */
-    public pageRegister unsetDateOfBirth2DropDownListField() {
+    public PageRegister unsetDateOfBirth2DropDownListField() {
         return unsetDateOfBirth2DropDownListField(data.get(MONTH_KEY));
     }
 
@@ -636,7 +628,7 @@ public class pageRegister extends TestBase{
      *
      * @return the Register class instance.
      */
-    public pageRegister unsetDateOfBirth2DropDownListField(String dateOfBirth2Value) {
+    public PageRegister unsetDateOfBirth2DropDownListField(String dateOfBirth2Value) {
         new Select(dateOfBirth2).deselectByVisibleText(dateOfBirth2Value);
         return this;
     }
@@ -646,7 +638,7 @@ public class pageRegister extends TestBase{
      *
      * @return the Register class instance.
      */
-    public pageRegister unsetDateOfBirth3DropDownListField() {
+    public PageRegister unsetDateOfBirth3DropDownListField() {
         return unsetDateOfBirth3DropDownListField(data.get(DAY_KEY));
     }
 
@@ -655,7 +647,7 @@ public class pageRegister extends TestBase{
      *
      * @return the Register class instance.
      */
-    public pageRegister unsetDateOfBirth3DropDownListField(String dateOfBirth3Value) {
+    public PageRegister unsetDateOfBirth3DropDownListField(String dateOfBirth3Value) {
         new Select(dateOfBirth3).deselectByVisibleText(dateOfBirth3Value);
         return this;
     }
@@ -665,7 +657,7 @@ public class pageRegister extends TestBase{
      *
      * @return the Register class instance.
      */
-    public pageRegister unsetHockeyCheckboxField() {
+    public PageRegister unsetHockeyCheckboxField() {
         if (hockey.isSelected()) {
             hockey.click();
         }
@@ -677,7 +669,7 @@ public class pageRegister extends TestBase{
      *
      * @return the Register class instance.
      */
-    public pageRegister unsetMoviesCheckboxField() {
+    public PageRegister unsetMoviesCheckboxField() {
         if (movies.isSelected()) {
             movies.click();
         }
@@ -689,7 +681,7 @@ public class pageRegister extends TestBase{
      *
      * @return the Register class instance.
      */
-    public pageRegister unsetSelectCountryDropDownListField() {
+    public PageRegister unsetSelectCountryDropDownListField() {
         return unsetSelectCountryDropDownListField(data.get(COUNTRY_KEY));
     }
 
@@ -698,7 +690,7 @@ public class pageRegister extends TestBase{
      *
      * @return the Register class instance.
      */
-    public pageRegister unsetSelectCountryDropDownListField(String selectCountryValue) {
+    public PageRegister unsetSelectCountryDropDownListField(String selectCountryValue) {
         new Select(selectCountry).deselectByVisibleText(selectCountryValue);
         return this;
     }
@@ -708,7 +700,7 @@ public class pageRegister extends TestBase{
      *
      * @return the Register class instance.
      */
-    public pageRegister unsetSkillsDropDownListField() {
+    public PageRegister unsetSkillsDropDownListField() {
         return unsetSkillsDropDownListField(data.get(SKILLS_KEY));
     }
 
@@ -717,21 +709,21 @@ public class pageRegister extends TestBase{
      *
      * @return the Register class instance.
      */
-    public pageRegister unsetSkillsDropDownListField(String skillsValue) {
+    public PageRegister unsetSkillsDropDownListField(String skillsValue) {
         new Select(skills).deselectByVisibleText(skillsValue);
         return this;
     }
 
     /**
-     * Verify that the page loaded completely. TODO
+     * Verify that the page loaded completely.
      *
      * @return the Register class instance.
      */
-    public pageRegister verifyPageLoaded() {
+    public PageRegister verifyPageLoaded() {
         try {
-            (new WebDriverWait(driver, Duration.ofSeconds(TestUtil.PAGE_LOAD_TIMEOUT))).until((ExpectedCondition<Boolean>) d -> d.getPageSource().contains(pageLoadedText));
+            (new WebDriverWait(driver, Duration.ofSeconds(TestUtil.PAGE_LOAD_TIMEOUT))).until((ExpectedCondition<Boolean>) d -> d.getPageSource().contains(PAGE_LOADED_TEXT));
         } catch (TimeoutException | NullPointerException e) {
-            throw new AssertionError("Expected Page load text to contain: " + pageLoadedText + " but was: " + driver.getTitle());
+            log.error("Expected Page load text to contain: {} but was: {}", PAGE_LOADED_TEXT,driver.getTitle());
         }
         return this;
     }
@@ -741,14 +733,14 @@ public class pageRegister extends TestBase{
      *
      * @return the Register class instance.
      */
-    public pageRegister verifyPageUrl() {
-        logger.info("Verifying page URL contains: {}", pageUrl);
+    public PageRegister verifyPageUrl() {
+        log.info("Verifying page URL contains: {}", PAGE_URL);
         try {
-            (new WebDriverWait(driver, Duration.ofSeconds(TestUtil.PAGE_LOAD_TIMEOUT))).until((ExpectedCondition<Boolean>) d -> d.getCurrentUrl().contains(pageUrl));
+            (new WebDriverWait(driver, Duration.ofSeconds(TestUtil.PAGE_LOAD_TIMEOUT))).until((ExpectedCondition<Boolean>) d -> d.getCurrentUrl().contains(PAGE_URL));
         } catch (TimeoutException | NullPointerException e) {
-            throw new AssertionError("Expected URL to contain: " + pageUrl + " but was: " + driver.getCurrentUrl());
+            throw new AssertionError("Expected URL to contain: " + PAGE_URL + " but was: " + driver.getCurrentUrl());
         }
-        logger.info("Page URL verification successful: {}", pageUrl);
+        log.info("Page URL verification successful: {}", PAGE_URL);
         return this;
 
     }
@@ -758,14 +750,14 @@ public class pageRegister extends TestBase{
      *
      * @return the Register class instance.
      */
-    public pageRegister verifyTitle() {
-        logger.info("Verifying page title contains: {}", pageTitle);
+    public PageRegister verifyTitle() {
+        log.info("Verifying page title contains: {}", PAGE_TITLE);
         try {
-            (new WebDriverWait(driver, Duration.ofSeconds(TestUtil.PAGE_LOAD_TIMEOUT))).until((ExpectedCondition<Boolean>) d -> d.getTitle().contains(pageTitle));
+            (new WebDriverWait(driver, Duration.ofSeconds(TestUtil.PAGE_LOAD_TIMEOUT))).until((ExpectedCondition<Boolean>) d -> d.getTitle().contains(PAGE_TITLE));
         } catch (TimeoutException | NullPointerException e) {
-            throw new AssertionError("Expected Title to contain: " + pageTitle + " but was: " + driver.getTitle());
+            throw new AssertionError("Expected Title to contain: " + PAGE_TITLE + " but was: " + driver.getTitle());
         }
-        logger.info("Page title URL verification successful: {}", pageTitle);
+        log.info("Page title URL verification successful: {}", PAGE_TITLE);
         return this;
 
     }

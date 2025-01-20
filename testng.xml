@@ -3,14 +3,13 @@
 <suite name="Proton Email Automation Suite">
 
 	<listeners>
-		<listener class-name="org.example.ExtentReportListener.ExtentReporterNG" />
+		<listener class-name="org.example.extent_report_listener.ExtentReporterNG" />
 	</listeners>
 
 	<test name="Proton Email Test Cases">
 		<!-- Test Runner Class -->
 		<classes>
-			<class name="org.example.testcases.TestLoginPage"></class>
-			<class name="org.example.testcases.TestInboxPage"></class>
+			<class name="org.example.testcases.TestRegisterPage"></class>
 		</classes><!-- Classes -->
 
 	</test> <!-- Test -->

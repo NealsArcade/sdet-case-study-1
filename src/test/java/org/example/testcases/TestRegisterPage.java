@@ -1,7 +1,7 @@
 package org.example.testcases;
 
 import org.example.base.TestBase;
-import org.example.pages.pageRegister;
+import org.example.pages.PageRegister;
 import org.example.util.TestUtil;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -14,8 +14,7 @@ import java.util.Map;
 public class TestRegisterPage extends TestBase {
 
     TestUtil objTestUtil = new TestUtil();
-    pageRegister register;
-    private final String pageUrl = "/Register.html";
+    PageRegister register;
 
     //constructor
     public TestRegisterPage() throws Exception {
@@ -25,7 +24,7 @@ public class TestRegisterPage extends TestBase {
     @BeforeMethod
     public void setup() {
         initialization();
-        register = new pageRegister(driver);
+        register = new PageRegister(driver);
     }
 
 
@@ -37,8 +36,7 @@ public class TestRegisterPage extends TestBase {
     @DataProvider(name = "registerTestData")
     public Object[][] getRegisterTestData() {
         String sheetName = "RegisterPage";
-        Object[][] sheetData = objTestUtil.getTestData(sheetName);
-        return sheetData;
+        return objTestUtil.getTestData(sheetName);
 
     }
 
@@ -67,7 +65,7 @@ public class TestRegisterPage extends TestBase {
         testData.put(register.DAY_KEY, day);
         testData.put(register.PASSWORD_KEY, password);
 
-        register = new pageRegister(driver, testData);
+        register = new PageRegister(driver, testData);
         register.fillAndSubmit();
     }
 

@@ -4,28 +4,29 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.lang.invoke.MethodHandles;
 import java.util.HashMap;
 import java.util.Map;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.poi.ss.usermodel.*;
-import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 
 import org.example.base.TestBase;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class TestUtil extends TestBase{
 
-	public static long PAGE_LOAD_TIMEOUT = 30;
-	public static long IMPLICIT_WAIT = 10;
+	private static final Logger log = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
+	public static final long PAGE_LOAD_TIMEOUT = 30;
+	public static final long IMPLICIT_WAIT = 10;
 
-	public static String TESTDATA_SHEET_PATH = System.getProperty("user.dir")
+	public static final String TESTDATA_SHEET_PATH = System.getProperty("user.dir")
 			+ "\\src\\main\\java\\org\\example\\testdata\\Automation_testData.xlsx";
 
-	static XSSFWorkbook book;
-	static XSSFSheet sheet;
 
 	// methods
 	public Object[][] getTestData(String sheetName) {
@@ -50,12 +51,12 @@ public class TestUtil extends TestBase{
 
 			return data;
 		} catch (FileNotFoundException e) {
-			e.printStackTrace();
+			log.error("File not found.! {}",e.getMessage());
 		} catch (IOException e) {
-			e.printStackTrace();
+			log.error("IO Exception {}", e.getMessage());
 		}
 
-		return null;
+		return new Object[0][0];
 	}
 
 
