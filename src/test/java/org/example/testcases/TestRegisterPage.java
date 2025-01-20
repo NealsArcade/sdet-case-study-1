@@ -37,15 +37,38 @@ public class TestRegisterPage extends TestBase {
     @DataProvider(name = "registerTestData")
     public Object[][] getRegisterTestData() {
         String sheetName = "RegisterPage";
-        return objTestUtil.convertToMapData(objTestUtil.getTestData(sheetName));
+        Object[][] sheetData = objTestUtil.getTestData(sheetName);
+        return sheetData;
+
     }
 
+
     @Test(dataProvider = "registerTestData")
-    public void testRegisterPageFunctionality(Map<String, String> testData) {
+
+    public void testRegisterPageFunctionality(String firstName, String lastName, String address, String emailAddress, String phone, String gender,
+                                              String hobbies, String languages, String skills, String country, String year, String month, String day, String password) {
+
+
+
+        //convert arguments to Map<String,String>
+        Map<String, String> testData = new HashMap<>();
+        testData.put(register.FIRST_NAME_KEY, firstName);
+        testData.put(register.LAST_NAME_KEY, lastName);
+        testData.put(register.ADDRESS_KEY, address);
+        testData.put(register.EMAIL_ADDRESS_KEY, emailAddress);
+        testData.put(register.PHONE_KEY, phone);
+        testData.put(register.GENDER_KEY, gender);
+        testData.put(register.HOBBIES_KEY, hobbies);
+        testData.put(register.LANGUAGES_KEY, languages);
+        testData.put(register.SKILLS_KEY, skills);
+        testData.put(register.COUNTRY_KEY, country);
+        testData.put(register.YEAR_KEY, year);
+        testData.put(register.MONTH_KEY, month);
+        testData.put(register.DAY_KEY, day);
+        testData.put(register.PASSWORD_KEY, password);
 
         register = new pageRegister(driver, testData);
         register.fillAndSubmit();
-
     }
 
     @AfterMethod

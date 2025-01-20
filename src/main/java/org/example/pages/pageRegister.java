@@ -115,6 +115,21 @@ public class pageRegister extends TestBase{
     @CacheLookup
     private WebElement submit;
 
+    public final String FIRST_NAME_KEY = "firstName";
+    public final String LAST_NAME_KEY = "lastName";
+    public final String ADDRESS_KEY = "address";
+    public final String EMAIL_ADDRESS_KEY = "emailAddress";
+    public final String PHONE_KEY = "phone";
+    public final String GENDER_KEY = "gender";
+    public final String HOBBIES_KEY = "hobbies";
+    public final String LANGUAGES_KEY = "languages";
+    public final String SKILLS_KEY = "skills";
+    public final String COUNTRY_KEY = "country";
+    public final String YEAR_KEY = "year";
+    public final String MONTH_KEY = "month";
+    public final String DAY_KEY = "day";
+    public final String PASSWORD_KEY = "password";
+
 
 
     public pageRegister() {
@@ -199,7 +214,7 @@ public class pageRegister extends TestBase{
      * @return the Register class instance.
      */
     public pageRegister setAddressTextareaField() {
-        return setAddressTextareaField(data.get("Address"));
+        return setAddressTextareaField(data.get(ADDRESS_KEY));
     }
 
     /**
@@ -218,7 +233,7 @@ public class pageRegister extends TestBase{
      * @return the Register class instance.
      */
     public pageRegister setConfirmPasswordPasswordField() {
-        return setConfirmPasswordPasswordField(data.get("Password"));
+        return setConfirmPasswordPasswordField(data.get(PASSWORD_KEY));
     }
 
     /**
@@ -237,7 +252,7 @@ public class pageRegister extends TestBase{
      * @return the Register class instance.
      */
     public pageRegister setCountryDropDownListField() {
-        return setCountryDropDownListField(data.get("Country"));
+        return setCountryDropDownListField(data.get(COUNTRY_KEY));
     }
 
     /**
@@ -252,7 +267,7 @@ public class pageRegister extends TestBase{
 
 
     public pageRegister setHobbiesCheckBox() {
-       return setHobbiesCheckBox(data.get("Hobbies"));
+       return setHobbiesCheckBox(data.get(HOBBIES_KEY));
     }
 
     public pageRegister setHobbiesCheckBox(String hobbies){
@@ -289,7 +304,7 @@ public class pageRegister extends TestBase{
      * @return the Register class instance.
      */
     public pageRegister setDateOfBirth1DropDownListField() {
-        return setDateOfBirth1DropDownListField(data.get("Year"));
+        return setDateOfBirth1DropDownListField(data.get(YEAR_KEY));
     }
 
     /**
@@ -308,7 +323,7 @@ public class pageRegister extends TestBase{
      * @return the Register class instance.
      */
     public pageRegister setDateOfBirth2DropDownListField() {
-        return setDateOfBirth2DropDownListField(data.get("Month"));
+        return setDateOfBirth2DropDownListField(data.get(MONTH_KEY));
     }
 
     /**
@@ -327,7 +342,7 @@ public class pageRegister extends TestBase{
      * @return the Register class instance.
      */
     public pageRegister setDateOfBirth3DropDownListField() {
-        return setDateOfBirth3DropDownListField(data.get("Day"));
+        return setDateOfBirth3DropDownListField(data.get(DAY_KEY));
     }
 
     /**
@@ -346,7 +361,7 @@ public class pageRegister extends TestBase{
      * @return the Register class instance.
      */
     public pageRegister setEmailAddressEmailField() {
-        return setEmailAddressEmailField(data.get("Email Address"));
+        return setEmailAddressEmailField(data.get(EMAIL_ADDRESS_KEY));
     }
 
     /**
@@ -360,7 +375,7 @@ public class pageRegister extends TestBase{
     }
 
     public pageRegister setGenderRadioButton() {
-        return setGenderRadioButton(data.get("Gender"));
+        return setGenderRadioButton(data.get(GENDER_KEY));
     }
 
     public pageRegister setGenderRadioButton(String gender){
@@ -416,7 +431,7 @@ public class pageRegister extends TestBase{
      * @return the Register class instance.
      */
     public pageRegister setFullName1TextField() {
-        return setFullName1TextField(data.get("First Name"));
+        return setFullName1TextField(data.get(FIRST_NAME_KEY));
     }
 
     /**
@@ -435,7 +450,7 @@ public class pageRegister extends TestBase{
      * @return the Register class instance.
      */
     public pageRegister setFullName2TextField() {
-        return setFullName2TextField(data.get("Last Name"));
+        return setFullName2TextField(data.get(LAST_NAME_KEY));
     }
 
     /**
@@ -478,7 +493,7 @@ public class pageRegister extends TestBase{
      * @return the Register class instance.
      */
     public pageRegister setPasswordPasswordField() {
-        return setPasswordPasswordField(data.get("Password"));
+        return setPasswordPasswordField(data.get(PASSWORD_KEY));
     }
 
     /**
@@ -497,7 +512,7 @@ public class pageRegister extends TestBase{
      * @return the Register class instance.
      */
     public pageRegister setPhoneTelField() {
-        return setPhoneTelField(data.get("Phone"));
+        return setPhoneTelField(data.get(PHONE_KEY));
     }
 
     /**
@@ -525,7 +540,7 @@ public class pageRegister extends TestBase{
      * @return the Register class instance.
      */
     public pageRegister setSelectCountryDropDownListField() {
-        return setSelectCountryDropDownListField(data.get("Country"));
+        return setSelectCountryDropDownListField(data.get(COUNTRY_KEY));
     }
 
     /**
@@ -544,7 +559,7 @@ public class pageRegister extends TestBase{
      * @return the Register class instance.
      */
     public pageRegister setSkillsDropDownListField() {
-        return setSkillsDropDownListField(data.get("Skills"));
+        return setSkillsDropDownListField(data.get(SKILLS_KEY));
     }
 
     /**
@@ -563,7 +578,7 @@ public class pageRegister extends TestBase{
      * @return the Register class instance.
      */
     public pageRegister unsetCountryDropDownListField() {
-        return unsetCountryDropDownListField(data.get("Country"));
+        return unsetCountryDropDownListField(data.get(COUNTRY_KEY));
     }
 
     /**
@@ -594,7 +609,7 @@ public class pageRegister extends TestBase{
      * @return the Register class instance.
      */
     public pageRegister unsetDateOfBirth1DropDownListField() {
-        return unsetDateOfBirth1DropDownListField(data.get("Year"));
+        return unsetDateOfBirth1DropDownListField(data.get(YEAR_KEY));
     }
 
     /**
@@ -613,7 +628,7 @@ public class pageRegister extends TestBase{
      * @return the Register class instance.
      */
     public pageRegister unsetDateOfBirth2DropDownListField() {
-        return unsetDateOfBirth2DropDownListField(data.get("Month"));
+        return unsetDateOfBirth2DropDownListField(data.get(MONTH_KEY));
     }
 
     /**
@@ -632,7 +647,7 @@ public class pageRegister extends TestBase{
      * @return the Register class instance.
      */
     public pageRegister unsetDateOfBirth3DropDownListField() {
-        return unsetDateOfBirth3DropDownListField(data.get("Day"));
+        return unsetDateOfBirth3DropDownListField(data.get(DAY_KEY));
     }
 
     /**
@@ -675,7 +690,7 @@ public class pageRegister extends TestBase{
      * @return the Register class instance.
      */
     public pageRegister unsetSelectCountryDropDownListField() {
-        return unsetSelectCountryDropDownListField(data.get("Country"));
+        return unsetSelectCountryDropDownListField(data.get(COUNTRY_KEY));
     }
 
     /**
@@ -694,7 +709,7 @@ public class pageRegister extends TestBase{
      * @return the Register class instance.
      */
     public pageRegister unsetSkillsDropDownListField() {
-        return unsetSkillsDropDownListField(data.get("Skills"));
+        return unsetSkillsDropDownListField(data.get(SKILLS_KEY));
     }
 
     /**
