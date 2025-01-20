@@ -3,40 +3,44 @@ package org.example.base;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.lang.invoke.MethodHandles;
+import java.time.Duration;
 import java.util.Properties;
-import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.support.events.EventFiringDecorator;
 import org.openqa.selenium.support.events.WebDriverListener;
 import org.example.util.TestUtil;
 import org.example.util.WebEventListener;
-// Import the necessary libraries.
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.edge.EdgeOptions;
-import org.openqa.selenium.remote.CapabilityType;
+
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public abstract class TestBase {
 
-	public static WebDriver driver;
-	public static Properties prop;
-	public static WebEventListener eventListener;
+	private static final Logger log = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
+	protected static WebDriver driver;
+	protected static Properties prop =  new Properties();
+	protected static WebEventListener eventListener;
 
-	public TestBase() {
+	protected TestBase() {
 		try {
-			prop = new Properties();
 			FileInputStream ip = new FileInputStream(System.getProperty("user.dir") +
-					"\\src\\main\\java\\com\\email\\qa\\config\\config.properties");
+					"\\src\\main\\java\\org\\example\\config\\config.properties");
 			prop.load(ip);
 		} catch (FileNotFoundException e) {
-			e.printStackTrace();
+			log.error("File not found.! {}",e.getMessage());
 		} catch (IOException e) {
-			e.printStackTrace();
+			log.error("IO Exception {}", e.getMessage());
 		}
 
 	}
@@ -55,7 +59,11 @@ public abstract class TestBase {
 			driver = new ChromeDriver(chromeOptions);
 		} else if (browserName.equals("firefox")) {
 
-			// TODO implement firefox here later
+			WebDriverManager.firefoxdriver().setup();
+			FirefoxOptions firefoxOptions = new FirefoxOptions();
+            firefoxOptions.setAcceptInsecureCerts(true);
+            driver = new FirefoxDriver(firefoxOptions);
+
 		} else if (browserName.equals("edge")) {
 
 			// Setup WebDriverManager to automatically download and configure the Edge
@@ -76,12 +84,12 @@ public abstract class TestBase {
 		// Listener class to give console output of the action performed on the browser
 		eventListener = new WebEventListener();
 		WebDriverListener listener = new WebEventListener();
-		driver = new EventFiringDecorator(listener).decorate(driver);
+		driver = new EventFiringDecorator<>(listener).decorate(driver);
 
 		driver.manage().window().maximize();
 		driver.manage().deleteAllCookies();
-		driver.manage().timeouts().pageLoadTimeout(TestUtil.PAGE_LOAD_TIMEOUT, TimeUnit.SECONDS);
-		driver.manage().timeouts().implicitlyWait(TestUtil.IMPLICIT_WAIT, TimeUnit.SECONDS);
+		driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(TestUtil.PAGE_LOAD_TIMEOUT));
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(TestUtil.IMPLICIT_WAIT));
 
 		driver.get(prop.getProperty("url"));
 

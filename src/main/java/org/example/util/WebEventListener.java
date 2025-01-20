@@ -1,7 +1,6 @@
 package org.example.util;
 
 
-import lombok.extern.java.Log;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Sequence;
 import org.openqa.selenium.support.events.WebDriverListener;
@@ -12,6 +11,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
+import java.lang.invoke.MethodHandles;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.net.URL;
@@ -23,54 +23,54 @@ import java.util.Set;
 
 public class WebEventListener extends TestBase implements WebDriverListener {
 
-	private static final Logger LOGGER = LoggerFactory.getLogger(WebEventListener.class);
+	private static final Logger log = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
 
 	@Override
 	public void beforeAnyCall(Object target, Method method, Object[] args) {
 		WebDriverListener.super.beforeAnyCall(target, method, args);
-		LOGGER.trace("Before any call: {}", method.getName());
+		log.trace("Before any call: {}", method.getName());
 	}
 
 	@Override
 	public void afterAnyCall(Object target, Method method, Object[] args, Object result) {
 		WebDriverListener.super.afterAnyCall(target, method, args, result);
-		LOGGER.trace("After any call: {}", method.getName());
+		log.trace("After any call: {}", method.getName());
 	}
 
 	@Override
 	public void onError(Object target, Method method, Object[] args, InvocationTargetException e) {
 		WebDriverListener.super.onError(target, method, args, e);
-		LOGGER.error("Exception occurred: {}", e.getMessage());
+		log.error("Exception occurred: {}", e.getMessage());
 		try {
 			TestUtil.takeScreenshotAtEndOfTest();
 		} catch (IOException e1) {
-			e1.printStackTrace();
+			log.error("IO Exception {}", e1.getMessage());
 		}
 	}
 
 	@Override
 	public void beforeAnyWebDriverCall(WebDriver driver, Method method, Object[] args) {
 		WebDriverListener.super.beforeAnyWebDriverCall(driver, method, args);
-		LOGGER.trace("Before any WebDriver call: {}" , method.getName());
+		log.trace("Before any WebDriver call: {}" , method.getName());
 	}
 
 	@Override
 	public void afterAnyWebDriverCall(WebDriver driver, Method method, Object[] args, Object result) {
 		WebDriverListener.super.afterAnyWebDriverCall(driver, method, args, result);
-		LOGGER.trace("After any WebDriver call: {}" , method.getName());
+		log.trace("After any WebDriver call: {}" , method.getName());
 	}
 
 	@Override
 	public void beforeGet(WebDriver driver, String url) {
 		WebDriverListener.super.beforeGet(driver, url);
-		LOGGER.info("Before get: {}" , url);
+		log.info("Before get: {}" , url);
 
 	}
 
 	@Override
 	public void afterGet(WebDriver driver, String url) {
 		WebDriverListener.super.afterGet(driver, url);
-		LOGGER.info("After get: {}" , url);
+		log.info("After get: {}" , url);
 	}
 
 	@Override
@@ -81,50 +81,49 @@ public class WebEventListener extends TestBase implements WebDriverListener {
 	@Override
 	public void afterGetCurrentUrl(WebDriver driver, String result) {
 		WebDriverListener.super.afterGetCurrentUrl(driver, result);
-		LOGGER.info("Current URL: {}" , result);
+		log.info("Current URL: {}" , result);
 	}
 
 	@Override
 	public void beforeGetTitle(WebDriver driver) {
 		WebDriverListener.super.beforeGetTitle(driver);
-		LOGGER.trace("Getting title");
+		log.trace("Getting title");
 	}
 
 	@Override
 	public void afterGetTitle(WebDriver driver, String result) {
 		WebDriverListener.super.afterGetTitle(driver, result);
-		LOGGER.trace("Title is: {}" , result);
-;
+		log.trace("Title is: {}" , result);
 	}
 
 	@Override
 	public void beforeFindElement(WebDriver driver, By locator) {
 		WebDriverListener.super.beforeFindElement(driver, locator);
-		LOGGER.info("Trying to find element: {}" , locator);
+		log.info("Trying to find element: {}" , locator);
 	}
 
 	@Override
 	public void afterFindElement(WebDriver driver, By locator, WebElement result) {
 		WebDriverListener.super.afterFindElement(driver, locator, result);
-		LOGGER.info("Element found: {}" , locator);
+		log.info("Element found: {}" , locator);
 	}
 
 	@Override
 	public void beforeFindElements(WebDriver driver, By locator) {
 		WebDriverListener.super.beforeFindElements(driver, locator);
-		LOGGER.info("Trying to find elements: {}" , locator);
+		log.info("Trying to find elements: {}" , locator);
 	}
 
 	@Override
 	public void afterFindElements(WebDriver driver, By locator, List<WebElement> result) {
 		WebDriverListener.super.afterFindElements(driver, locator, result);
-		LOGGER.info("Elements found: {}" , locator);
+		log.info("Elements found: {}" , locator);
 	}
 
 	@Override
 	public void beforeGetPageSource(WebDriver driver) {
 		WebDriverListener.super.beforeGetPageSource(driver);
-		LOGGER.trace("Getting page source");
+		log.trace("Getting page source");
 
 	}
 
@@ -136,85 +135,85 @@ public class WebEventListener extends TestBase implements WebDriverListener {
 	@Override
 	public void beforeClose(WebDriver driver) {
 		WebDriverListener.super.beforeClose(driver);
-		LOGGER.info("Closing the browser");
+		log.info("Closing the browser");
 	}
 
 	@Override
 	public void afterClose(WebDriver driver) {
 		WebDriverListener.super.afterClose(driver);
-		LOGGER.info("Browser closed");
+		log.info("Browser closed");
 	}
 
 	@Override
 	public void beforeQuit(WebDriver driver) {
 		WebDriverListener.super.beforeQuit(driver);
-		LOGGER.info("Quitting the browser");
+		log.info("Quitting the browser");
 	}
 
 	@Override
 	public void afterQuit(WebDriver driver) {
 		WebDriverListener.super.afterQuit(driver);
-		LOGGER.info("Browser quit");
+		log.info("Browser quit");
 	}
 
 	@Override
 	public void beforeGetWindowHandles(WebDriver driver) {
 		WebDriverListener.super.beforeGetWindowHandles(driver);
-		LOGGER.info("Getting window handles");
+		log.info("Getting window handles");
 	}
 
 	@Override
 	public void afterGetWindowHandles(WebDriver driver, Set<String> result) {
 		WebDriverListener.super.afterGetWindowHandles(driver, result);
-		LOGGER.info("Window handles: {}" , result);
+		log.info("Window handles: {}" , result);
 	}
 
 	@Override
 	public void beforeGetWindowHandle(WebDriver driver) {
 		WebDriverListener.super.beforeGetWindowHandle(driver);
-		LOGGER.info("Getting window handle");
+		log.info("Getting window handle");
 	}
 
 	@Override
 	public void afterGetWindowHandle(WebDriver driver, String result) {
 		WebDriverListener.super.afterGetWindowHandle(driver, result);
-		LOGGER.info("Window handle: {}" , result);
+		log.info("Window handle: {}" , result);
 	}
 
 	@Override
 	public void beforeExecuteScript(WebDriver driver, String script, Object[] args) {
 		WebDriverListener.super.beforeExecuteScript(driver, script, args);
-		LOGGER.info("Executing script: {}" , script);
+		log.info("Executing script: {}" , script);
 	}
 
 	@Override
 	public void afterExecuteScript(WebDriver driver, String script, Object[] args, Object result) {
 		WebDriverListener.super.afterExecuteScript(driver, script, args, result);
-		LOGGER.info("Script executed: {}" , script);
+		log.info("Script executed: {}" , script);
 	}
 
 	@Override
 	public void beforeExecuteAsyncScript(WebDriver driver, String script, Object[] args) {
 		WebDriverListener.super.beforeExecuteAsyncScript(driver, script, args);
-		LOGGER.info("Executing async script: {}" , script);
+		log.info("Executing async script: {}" , script);
 	}
 
 	@Override
 	public void afterExecuteAsyncScript(WebDriver driver, String script, Object[] args, Object result) {
 		WebDriverListener.super.afterExecuteAsyncScript(driver, script, args, result);
-		LOGGER.info("Async script executed: {}" , script);
+		log.info("Async script executed: {}" , script);
 	}
 
 	@Override
 	public void beforePerform(WebDriver driver, Collection<Sequence> actions) {
 		WebDriverListener.super.beforePerform(driver, actions);
-		LOGGER.info("Performing actions: {}" , actions);
+		log.info("Performing actions: {}" , actions);
 	}
 
 	@Override
 	public void afterPerform(WebDriver driver, Collection<Sequence> actions) {
 		WebDriverListener.super.afterPerform(driver, actions);
-		LOGGER.info("Actions performed: {}" , actions);
+		log.info("Actions performed: {}" , actions);
 	}
 
 	@Override
@@ -240,37 +239,37 @@ public class WebEventListener extends TestBase implements WebDriverListener {
 	@Override
 	public void beforeClick(WebElement element) {
 		WebDriverListener.super.beforeClick(element);
-		LOGGER.info("Clicking on element: {}" , element);
+		log.info("Clicking on element: {}" , element);
 	}
 
 	@Override
 	public void afterClick(WebElement element) {
 		WebDriverListener.super.afterClick(element);
-		LOGGER.info("Element clicked: {}" , element);
+		log.info("Element clicked: {}" , element);
 	}
 
 	@Override
 	public void beforeSubmit(WebElement element) {
 		WebDriverListener.super.beforeSubmit(element);
-		LOGGER.info("Submitting element: {}" , element);
+		log.info("Submitting element: {}" , element);
 	}
 
 	@Override
 	public void afterSubmit(WebElement element) {
 		WebDriverListener.super.afterSubmit(element);
-		LOGGER.info("Element submitted: {}" , element);
+		log.info("Element submitted: {}" , element);
 	}
 
 	@Override
 	public void beforeSendKeys(WebElement element, CharSequence... keysToSend) {
 		WebDriverListener.super.beforeSendKeys(element, keysToSend);
-		LOGGER.info("Sending keys to element: {}" , element);
+		log.info("Sending keys to element: {}" , element);
 	}
 
 	@Override
 	public void afterSendKeys(WebElement element, CharSequence... keysToSend) {
 		WebDriverListener.super.afterSendKeys(element, keysToSend);
-		LOGGER.info("Keys sent to element: {}" , element);
+		log.info("Keys sent to element: {}" , element);
 	}
 
 	@Override
