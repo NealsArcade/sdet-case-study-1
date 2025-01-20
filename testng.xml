@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Proton Email Automation Suite">
+<suite name="SDET Case study - 1">
 
 	<listeners>
 		<listener class-name="org.example.extent_report_listener.ExtentReporterNG" />
 	</listeners>
 
-	<test name="Proton Email Test Cases">
+	<test name="SDET Case study - 1">
 		<!-- Test Runner Class -->
 		<classes>
 			<class name="org.example.testcases.TestRegisterPage"></class>
