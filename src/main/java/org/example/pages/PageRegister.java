@@ -8,6 +8,7 @@ import java.util.Map;
 
 import org.example.base.TestBase;
 import org.example.util.TestUtil;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
@@ -163,6 +164,7 @@ public class PageRegister extends TestBase {
      * @return the Register class instance.
      */
     public PageRegister clickSubmitButton() {
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", submit);
         submit.click();
         return this;
     }
