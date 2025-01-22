@@ -50,36 +50,39 @@ public abstract class TestBase {
 		String browserName = prop.getProperty("browser");
 		boolean headlessMode = Boolean.parseBoolean(prop.getProperty("headless", "false"));
 
-		if (browserName.equals("chrome")) {
-			WebDriverManager.chromedriver().setup();
-			ChromeOptions chromeOptions = new ChromeOptions();
+        switch (browserName.toLowerCase()) {
+            case "chrome" -> {
+                WebDriverManager.chromedriver().setup();
+                ChromeOptions chromeOptions = new ChromeOptions();
+                chromeOptions.setAcceptInsecureCerts(true);
+                driver = new ChromeDriver(chromeOptions);
+            }
+            case "firefox" -> {
+                WebDriverManager.firefoxdriver().setup();
+                FirefoxOptions firefoxOptions = new FirefoxOptions();
+                firefoxOptions.setAcceptInsecureCerts(true);
+                driver = new FirefoxDriver(firefoxOptions);
+            }
+            case "edge" -> {
+                // Setup WebDriverManager to automatically download and configure the Edge
+                // driver
+                WebDriverManager.edgedriver().setup();
+                // Create EdgeOptions instance
+                EdgeOptions edgeOptions = new EdgeOptions();
+                // Set desired capabilities for Edge browser
+                if (headlessMode) {
+                    edgeOptions.addArguments("--headless=new"); // Use --headless=new for Edge versions 109.0.1518.55 and above.
+                }
+                edgeOptions.setAcceptInsecureCerts(true);
 
-			chromeOptions.setAcceptInsecureCerts(true);
-
-			driver = new ChromeDriver(chromeOptions);
-		} else if (browserName.equals("firefox")) {
-
-			WebDriverManager.firefoxdriver().setup();
-			FirefoxOptions firefoxOptions = new FirefoxOptions();
-            firefoxOptions.setAcceptInsecureCerts(true);
-            driver = new FirefoxDriver(firefoxOptions);
-
-		} else if (browserName.equals("edge")) {
-
-			// Setup WebDriverManager to automatically download and configure the Edge
-			// driver
-			WebDriverManager.edgedriver().setup();
-			// Create EdgeOptions instance
-			EdgeOptions edgeOptions = new EdgeOptions();
-			// Set desired capabilities for Edge browser
-			if (headlessMode) {
-				edgeOptions.addArguments("--headless=new"); // Use --headless=new for Edge versions 109.0.1518.55 and above.
-			}
-			edgeOptions.setAcceptInsecureCerts(true);
-
-			// Create EdgeDriver instance
-			driver = new EdgeDriver(edgeOptions);
-		}
+                // Create EdgeDriver instance
+                driver = new EdgeDriver(edgeOptions);
+            }
+			default -> {
+			        log.error("Invalid browser name specified.! {}", browserName);
+			        System.exit(0);
+			    }
+        }
 
 		// Listener class to give console output of the action performed on the browser
 		eventListener = new WebEventListener();
